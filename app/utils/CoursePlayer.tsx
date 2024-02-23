@@ -14,7 +14,7 @@ const CoursePlayer: FC<Props> = ({ videoUrl }) => {
 
   useEffect(() => {
     axios
-      .post("https://springbee.onrender.com/api/v1/getVdoCipherOTP", {
+      .post("https://diagruk-backend1.onrender.com/api/v1/getVdoCipherOTP", {
         videoId: videoUrl,
       })
       .then((res) => {
@@ -26,7 +26,7 @@ const CoursePlayer: FC<Props> = ({ videoUrl }) => {
     <div style={{position:"relative",paddingTop:"56.25%",overflow:"hidden"}}>
       {videoData.otp && videoData.playbackInfo !== "" && (
         <iframe
-          src={`https://player.vdocipher.com/v2/?otp=${videoData?.otp}&playbackInfo=${videoData.playbackInfo}&player=nUAOfGFzR1Fg3laJ`}
+          src={`https://player.vdocipher.com/v2/?otp=${videoData?.otp}&playbackInfo=${videoData.playbackInfo}&player=8O3tAqTwSMq3gx4k`}
           style={{
             position: "absolute",
             top: 0,
