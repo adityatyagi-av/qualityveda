@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from 'next/navigation'
 import Link from "next/link";
 import React, { FC, useEffect, useState } from "react";
 import NavItems from "../utils/NavItems";
@@ -34,6 +35,8 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
   const {} = useLogOutQuery(undefined, {
     skip: !logout ? true : false,
   });
+  const pathname = usePathname()
+  console.log(pathname);
 
   useEffect(() => {
     if(!isLoading){

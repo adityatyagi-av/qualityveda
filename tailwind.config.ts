@@ -9,6 +9,9 @@ const config: Config = {
   darkMode:["class"],
   theme: {
     extend: {
+      colors: {
+        'hsl-custom': 'hsl(222.2, 84%, 4.9%)',
+      },
       fontFamily:{
         Poppins: ["var(--font-Poppins)"],
         Josefin: ["var(--font-Josefin)"],

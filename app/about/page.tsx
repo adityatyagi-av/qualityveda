@@ -1,33 +1,20 @@
-"use client";
-import React, { useState } from "react";
 import Heading from "../utils/Heading";
-import Header from "../components/Header";
 import About from "./About";
-import Footer from "../components/Footer";
-
+import AboutHero from "./AboutHero";
+import AboutTeam from "./AboutTeam";
 type Props = {};
 
 const Page = (props: Props) => {
-  const [open, setOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState(2);
-  const [route, setRoute] = useState("Login");
-
   return (
-    <div>
+    <div className="dark:bg-hsl-custom">
       <Heading
         title="About us - Elearning"
         description="Elearning is a learning management system for helping programmers."
         keywords="programming,mern"
       />
-      <Header
-        open={open}
-        setOpen={setOpen}
-        activeItem={activeItem}
-        setRoute={setRoute}
-        route={route}
-      />
+     <AboutHero/>
       <About />
-      <Footer />
+      <AboutTeam/>
     </div>
   );
 };

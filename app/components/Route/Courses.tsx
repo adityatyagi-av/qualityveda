@@ -13,12 +13,12 @@ const Courses = (props: Props) => {
   }, [data]);
 
   return (
-    <div>
+    <div className="dark:bg-hsl-custom">
       <div className={`w-[90%] 800px:w-[80%] m-auto`}>
-        <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] text-[#000] font-[700] tracking-tight">
-          Expand Your Career <span className="text-gradient">Opportunity</span>{" "}
+        <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
+          Expand Your Career <span className="text-gradient">Learning</span>{" "}
           <br />
-          Opportunity With Our Training Program
+          with Quality Veda
         </h1>
         <br />
         <br />
