@@ -18,10 +18,7 @@ export const navItemsData = [
     name: "Policy",
     url: "/policy",
   },
-  {
-    name: "FAQ",
-    url: "/faq",
-  },
+  
 ];
 
 type Props = {

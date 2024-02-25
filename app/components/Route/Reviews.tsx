@@ -51,37 +51,60 @@ export const reviews = [
 
 const Reviews = (props: Props) => {
   return (
-  <div className="dark:bg-hsl-custom w-[90%] 800px:w-[85%] m-auto">
-      <div className="w-full 800px:flex items-center">
-      <div className="800px:w-[50%] w-full">
-        <Image
-        src={require("../../../public/assests/business-img.png")}
-        alt="business"
-        width={700}
-        height={700}
-        />
+   <>
+        <div>
+            <div className="lg:px-20 md:px-6 px-4 py-12">
+                <div className="flex flex-col items-center justify-center">
+                    <h1 className="lg:text-4xl text-3xl font-bold text-center dark:text-gray-50 text-gray-800">Hear from our Enrolled Students</h1>
+                    <p className="text-base leading-6 mt-4 text-center dark:text-gray-200  text-gray-600 2xl:w-2/5 ">Here is why you should trust us with your work achievements</p>
+                </div>
+                <div className="w-full lg:flex items-center gap-6 mt-10">
+                    <div className="lg:w-1/2">
+                        <div className="bg-white dark:border-gray-800 dark:bg-gray-900 border rounded-md border-gray-200 relative sm:p-10 p-6">
+                            <div>
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg1.svg" alt="commas" />
+                            </div>
+                            <p className="text-base leading-6 text-gray-600 dark:text-gray-100 mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
+                            <div className="absolute bottom-0 -mb-4 ml-10">
+                                
+                                
+                            </div>
+                        </div>
+                        <div className="flex items-center mt-7">
+                            <div className="w-12 h-12 border border-indigo-700 rounded-full flex items-center justify-center">
+                                <img src="https://i.ibb.co/R6WQhYj/Mask-Group.png" className="w-10 h-10 rounded-full" alt="profile" />
+                            </div>
+                            <div className="flex flex-col items-start ml-4">
+                                <p className="text-base font-semibold dark:text-gray-200 leading-4 text-gray-800">Alisha Cooper</p>
+                                <p className="text-base leading-4 mt-2 text-center text-gray-600 dark:text-gray-400">Senior Lab Assistant</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="lg:w-1/2 lg:mt-0 mt-16">
+                        <div className="bg-white border rounded-md dark:border-gray-800 dark:bg-gray-900 border-gray-200 relative sm:p-10 p-6">
+                            <div>
+                                <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonials-4-svg1.svg" alt="commas" />
+                            </div>
+                            <p className="text-base leading-6 text-gray-600 dark:text-gray-100 mt-4">When our designs need an expert opinion or approval, I know I can rely on your agency Thank you for all your help-I will be recommending you to everyone</p>
+                            <div className="absolute bottom-0 -mb-4 ml-10">
+                                
+                            </div>
+                        </div>
+                        <div className="flex items-center mt-7">
+                            <div className="w-12 h-12 border border-indigo-700 rounded-full flex items-center justify-center">
+                                <img src="https://i.ibb.co/C6bwf12/Mask-Group.png" className="w-10 h-10 rounded-full" alt="profile" />
+                            </div>
+                            <div className="flex flex-col items-start ml-4">
+                                <p className="text-base font-semibold leading-4 text-gray-800 dark:text-gray-200">Henry Jack</p>
+                                <p className="text-base leading-4 mt-2 text-center text-gray-600 dark:text-gray-400">Technician Mittal Labs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div className="800px:w-[50%] w-full">
-          <h3 className={`${styles.title} 800px:!text-[40px]`}>
-            Our Students Are <span className="text-gradient">Our Strength</span>{" "}
-            <br /> See What They Say About Us
-          </h3>
-          <br />
-          <p className={styles.label}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque unde
-            voluptatum dignissimos, nulla perferendis dolorem voluptate nemo
-            possimus magni deleniti natus accusamus officiis quasi nihil
-            commodi, praesentium quidem, quis doloribus?
-          </p>
-        </div>
-        <br />
-        <br />
-       </div>
-       <div className="grid grid-cols-1 gap-[25px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-2 lg:gap-[25px] xl:grid-cols-2 xl:gap-[35px] mb-12 border-0 md:[&>*:nth-child(3)]:!mt-[-60px] md:[&>*:nth-child(6)]:!mt-[-20px]">
-        {reviews &&
-            reviews.map((i, index) => <ReviewCard item={i} key={index} />)}
-        </div>
-  </div>
+
+  </>
   );
 };
 

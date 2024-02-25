@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Loader from "../Loader/Loader";
 import Heading from "@/app/utils/Heading";
 import CourseContentMedia from "./CourseContentMedia";
-import Header from "../Header";
+
 import CourseContentList from "./CourseContentList";
 
 type Props = {
@@ -13,8 +13,7 @@ type Props = {
 
 const CourseContent = ({ id,user }: Props) => {
   const { data: contentData, isLoading,refetch } = useGetCourseContentQuery(id,{refetchOnMountOrArgChange:true});
-  const [open, setOpen] = useState(false);
-  const [route, setRoute] = useState('Login')
+  
   const data = contentData?.content;
 
   const [activeVideo, setActiveVideo] = useState(0);
@@ -25,7 +24,7 @@ const CourseContent = ({ id,user }: Props) => {
         <Loader />
       ) : (
         <>
-          <Header activeItem={1} open={open} setOpen={setOpen} route={route} setRoute={setRoute} />
+         
           <div className="w-full grid 800px:grid-cols-10">
             <Heading
               title={data[activeVideo]?.title}

@@ -57,13 +57,7 @@ const CourseDetailsPage = ({ id }: Props) => {
             }
             keywords={data?.course?.tags}
           />
-          <Header
-            route={route}
-            setRoute={setRoute}
-            open={open}
-            setOpen={setOpen}
-            activeItem={1}
-          />
+          
           {stripePromise && (
             <CourseDetails
               data={data.course}
@@ -73,7 +67,7 @@ const CourseDetailsPage = ({ id }: Props) => {
               setOpen={setOpen}
             />
           )}
-          <Footer />
+         
         </div>
       )}
     </>
