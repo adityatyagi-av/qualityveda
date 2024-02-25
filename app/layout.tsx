@@ -1,5 +1,6 @@
 "use client";
 import "./globals.css";
+import { usePathname } from "next/navigation";
 import { Poppins } from "next/font/google";
 import { Josefin_Sans } from "next/font/google";
 import { ThemeProvider } from "./utils/theme-provider";
@@ -35,6 +36,9 @@ export default function RootLayout({
   const [open, setOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
   const [route, setRoute] = useState("Login");
+  const pathname = usePathname();
+  const text1 = pathname?.split("/")[1];
+  
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
@@ -45,15 +49,20 @@ export default function RootLayout({
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Custom>
                 <>
-                  <Header
-                    open={open}
-                    setOpen={setOpen}
-                    activeItem={activeItem}
-                    setRoute={setRoute}
-                    route={route}
-                  />
+                  {text1 !== "admin" && (
+                    <Header
+                      open={open}
+                      setOpen={setOpen}
+                      activeItem={activeItem}
+                      setRoute={setRoute}
+                      route={route}
+                    />
+                  )}
                   {children}
-                  <Footer />
+                  {text1 !== "admin" && (
+                    <Footer />
+                  )}
+                  
                 </>
               </Custom>
               <Toaster position="top-center" reverseOrder={false} />

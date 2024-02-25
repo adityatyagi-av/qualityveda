@@ -1,5 +1,5 @@
 "use client";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import React, { FC, useEffect, useState } from "react";
 import NavItems from "../utils/NavItems";
@@ -32,11 +32,15 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
   const { data } = useSession();
   const [socialAuth, { isSuccess, error }] = useSocialAuthMutation();
   const [logout, setLogout] = useState(false);
+  const pathname = usePathname();
+  const text1 = pathname?.split("/")[1];
+  console.log(typeof text1);
+ 
   const {} = useLogOutQuery(undefined, {
     skip: !logout ? true : false,
   });
-  const pathname = usePathname()
-  console.log(pathname);
+ 
+  
 
   useEffect(() => {
     if(!isLoading){

@@ -14,11 +14,8 @@ import {
   GroupsIcon,
   OndemandVideoIcon,
   VideoCallIcon,
-  WebIcon,
-  QuizIcon,
   WysiwygIcon,
   ManageHistoryIcon,
-  SettingsIcon,
   ExitToAppIcon,
 } from "./Icon";
 import avatarDefault from "../../../../public/assests/avatar.png";
@@ -227,20 +224,8 @@ const AdminSidebar = () => {
             >
               {!isCollapsed && "Customization"}
             </Typography>
-            <Item
-              title="Hero"
-              to="/admin/hero"
-              icon={<WebIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="FAQ"
-              to="/admin/faq"
-              icon={<QuizIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+            
+            
             <Item
               title="Categories"
               to="/admin/categories"
