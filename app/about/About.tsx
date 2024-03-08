@@ -95,9 +95,7 @@ const About = (props: Props) => {
                     The powerless in a world
                   </h6>
                   <p className="text-sm dark:text-gray-300 text-gray-900">
-                    The first mate and his Skipper too will do their very best to
-                    make the others comfortable in their tropic island nest. Michael
-                    Knight a young loner.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam rem fugit, in fuga praesentium nulla magnam cum ea velit eum perspiciatis quaerat iste tempora aut.
                   </p>
                   <hr className="w-full my-6 border-gray-300" />
                 </div>
