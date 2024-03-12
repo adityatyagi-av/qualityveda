@@ -8,6 +8,8 @@ import Reviews from "./components/Route/Reviews";
 
 import Stats from "./components/Route/Stats";
 import Contact from "./components/Route/Contact";
+import MainHero from "./components/Route/MainHero";
+import FAQ from "./components/Route/FAQ";
 
 interface Props {}
 
@@ -21,12 +23,13 @@ const Page: FC<Props> = (props) => {
         description="Quality Veda is a platform for students to learn and get help from teachers"
         keywords=""
       />
-      
+      <MainHero/>
+      <Courses />
       <Hero />
       <Stats/>
-      <Courses />
-      <Reviews />
       
+      <Reviews />
+      <FAQ/>
       <Contact/>
      
     </div>
