@@ -51,11 +51,11 @@ export default function RootLayout({
                 <>
                   {text1 !== "admin" && (
                     <Header
-                      open={open}
-                      setOpen={setOpen}
-                      activeItem={activeItem}
-                      setRoute={setRoute}
-                      route={route}
+                      // open={open}
+                      // setOpen={setOpen}
+                      // activeItem={activeItem}
+                      // setRoute={setRoute}
+                      // route={route}
                     />
                   )}
                   {children}
