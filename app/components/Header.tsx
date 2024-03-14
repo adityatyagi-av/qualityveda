@@ -1,31 +1,31 @@
-// "use client";
-// import { usePathname } from "next/navigation";
-// import Link from "next/link";
-// import React, { FC, useEffect, useState } from "react";
-// import NavItems from "../utils/NavItems";
-// import { ThemeSwitcher } from "../utils/ThemeSwitcher";
-// import { HiOutlineMenuAlt3, HiOutlineUserCircle } from "react-icons/hi";
-// import CustomModal from "../utils/CustomModal";
-// import Login from "../components/Auth/Login";
-// import SignUp from "../components/Auth/SignUp";
-// import Verification from "../components/Auth/Verification";
-// import Image from "next/image";
-// import avatar from "../../public/assests/avatar.png";
-// import { useSession } from "next-auth/react";
-// import { useLogOutQuery, useSocialAuthMutation } from "@/redux/features/auth/authApi";
-// import { toast } from "react-hot-toast";
-// import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
-// import Loader from "./Loader/Loader";
+"use client";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import React, { FC, useEffect, useState } from "react";
+import NavItems from "../utils/NavItems";
+import { ThemeSwitcher } from "../utils/ThemeSwitcher";
+import { HiOutlineMenuAlt3, HiOutlineUserCircle } from "react-icons/hi";
+import CustomModal from "../utils/CustomModal";
+import Login from "../components/Auth/Login";
+import SignUp from "../components/Auth/SignUp";
+import Verification from "../components/Auth/Verification";
+import Image from "next/image";
+import avatar from "../../public/assests/avatar.png";
+import { useSession } from "next-auth/react";
+import { useLogOutQuery, useSocialAuthMutation } from "@/redux/features/auth/authApi";
+import { toast } from "react-hot-toast";
+import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
+import Loader from "./Loader/Loader";
 
 import { Button } from "@mui/material"
 
-// type Props = {
-//   open: boolean;
-//   setOpen: (open: boolean) => void;
-//   activeItem: number;
-//   route: string;
-//   setRoute: (route: string) => void;
-// };
+type Props = {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  activeItem: number;
+  route: string;
+  setRoute: (route: string) => void;
+};
 
 // const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
 //   const [active, setActive] = useState(false);
@@ -229,12 +229,76 @@ import { Button } from "@mui/material"
 
 // export default Header;
 
-import Link from 'next/link';
-import React from 'react';
 
-const Navbar = () => {
+const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
+    const [active, setActive] = useState(false);
+  const [openSidebar, setOpenSidebar] = useState(false);
+  const {data:userData,isLoading,refetch} = useLoadUserQuery(undefined,{});
+  const { data } = useSession();
+  const [socialAuth, { isSuccess, error }] = useSocialAuthMutation();
+  const [logout, setLogout] = useState(false);
+  const pathname = usePathname();
+  const text1 = pathname?.split("/")[1];
+  console.log(typeof text1);
+ 
+  const {} = useLogOutQuery(undefined, {
+    skip: !logout ? true : false,
+  });
+ 
+  useEffect(() => {
+    if(!isLoading){
+      if (!userData) {
+        if (data) {
+          socialAuth({
+            email: data?.user?.email,
+            name: data?.user?.name,
+            avatar: data.user?.image,
+          });
+          refetch();
+        }
+      }
+      if(data === null){
+        if(isSuccess){
+          toast.success("Login Successfully");
+        }
+      }
+      if(data === null && !isLoading && !userData){
+          setLogout(true);
+      }
+    }
+  }, [data, userData,isLoading]);
+
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 85) {
+        setActive(true);
+      } else {
+        setActive(false);
+      }
+    });
+  }
+  const handleClose = (e: any) => {
+        if (e.target.id === "screen") {
+          {
+            setOpenSidebar(false);
+          }
+        }
+      };
   return (
-    <nav className=" pt-8 mx-12  flex justify-between items-center md:px-8">
+    <>
+    {
+    isLoading ? (
+      <Loader />
+    ) : (
+      <div className="w-full relative">
+        <div
+        className={`${
+          active
+            ? "dark:bg-opacity-50 bg-white dark:bg-gradient-to-b dark:from-gray-900 dark:to-black fixed top-0 left-0 w-full h-[80px] z-[80] border-b dark:border-[#ffffff1c] shadow-xl transition duration-500"
+            : "w-full  dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow"
+        }`}
+      >
+    <nav className=" py-8 mx-12  flex justify-between items-center md:px-8">
       {/* Left Section - Company Name */}
       <div className="ml-4 md:ml-0">
         <Link href="/" className="text-2xl font-bold text-black">
@@ -268,7 +332,11 @@ const Navbar = () => {
         </button>
       </div>
     </nav>
+    </div>
+    </div>
+    )}
+    </>
   );
 };
 
-export default Navbar;
+export default Header;
