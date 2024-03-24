@@ -10,6 +10,7 @@ import Stats from "./components/Route/Stats";
 import Contact from "./components/Route/Contact";
 import MainHero from "./components/Route/MainHero";
 import FAQ from "./components/Route/FAQ";
+import Slider from "./components/Route/Slider";
 
 interface Props {}
 
@@ -25,12 +26,14 @@ const Page: FC<Props> = (props) => {
       />
       <MainHero/>
       <Courses />
+      <Slider/>
       <Hero />
+
       <Stats/>
       
       <Reviews />
       <FAQ/>
-      <Contact/>
+      {/* <Contact/> */}
      
     </div>
   );

@@ -6,7 +6,7 @@ const FAQ = (props: Props) => {
   return (
     <section className="bg-white dark:bg-gray-900">
     <div className="container max-w-4xl px-6 py-10 mx-auto">
-        <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white">Frequently asked questions</h1>
+        <h1 className="text-2xl font-semibold text-center text-gray-800 lg:text-3xl dark:text-white">Unlock Answers to Your Queries: Dive into Our FAQs!</h1>
 
         <div className="mt-12 space-y-8">
             <div className="border-2 border-gray-100 rounded-lg dark:border-gray-700">

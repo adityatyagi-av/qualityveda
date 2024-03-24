@@ -1,6 +1,7 @@
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
 import React, { useEffect, useState } from "react";
 import CourseCard from "../Course/CourseCard";
+import Link from "next/link";
 
 type Props = {};
 
@@ -16,9 +17,8 @@ const Courses = (props: Props) => {
     <div className="dark:bg-hsl-custom">
       <div className={`w-[90%] 800px:w-[80%] m-auto`}>
         <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
-          Expand Your Career <span className="text-gradient">Learning</span>{" "}
-          <br />
-          with Quality Veda
+        Upgradation Programs: <span className="text-gray-600 text-gradient">Choose what{`'`}s best for you</span>{" "}
+          
         </h1>
         <br />
         <br />
@@ -28,7 +28,16 @@ const Courses = (props: Props) => {
               <CourseCard item={item} key={index} />
             ))}
         </div>
+        <div className="mt-10 flex items-center justify-center gap-x-6">
+        <Link
+                href="courses"
+                className="rounded-md hover:cursor-pointer bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                View All Courses →
+              </Link>
+              </div>
       </div>
+      
     </div>
   );
 };
