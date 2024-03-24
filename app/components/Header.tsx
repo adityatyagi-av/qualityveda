@@ -277,13 +277,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
       }
     });
   }
-  const handleClose = (e: any) => {
-        if (e.target.id === "screen") {
-          {
-            setOpenSidebar(false);
-          }
-        }
-      };
+
   return (
     <>
     {
@@ -307,7 +301,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
       </div>
 
       {/* Center Section - Navigation Links */}
-      <div className="hidden md:flex flex-grow justify-center space-x-8">
+      <div className="hidden lg:flex flex-grow justify-center space-x-8">
         <Link href="/" className="font-semibold text-gray-600 hover:text-purple-600">
           Home
         </Link>
@@ -324,14 +318,76 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
           About Us
         </Link>
       </div>
+     
 
+ <ThemeSwitcher />
       {/* Right Section - Sign Up Button */}
+
       <div className="mr-4 md:mr-0">
-        <button className="neon bg-white text-purple-600 font-bold px-6 py-2 rounded-full border border-purple-600 text-sm">
+      {userData ? (
+                <Link href={"/profile"}>
+                  <Image
+                    src={userData?.user.avatar ? userData.user.avatar.url : avatar}
+                    alt=""
+                    width={30}
+                    height={30}
+                    className="w-[30px] h-[30px] rounded-full cursor-pointer"
+                    style={{border: activeItem === 5 ? "2px solid #37a39a" : "none"}}
+                  />
+                </Link>
+              ) : (
+                <button  onClick={() => setOpen(true)} className="neon bg-white text-purple-600 font-bold px-6 py-2 rounded-full border border-purple-600 text-sm">
           Sign Up
         </button>
+                
+              )}
+        
       </div>
+      <NavItems activeItem={activeItem} isMobile={true} />
+      {route === "Login" && (
+        <>
+          {open && (
+            <CustomModal
+              open={open}
+              setOpen={setOpen}
+              setRoute={setRoute}
+              activeItem={activeItem}
+              component={Login}
+              refetch={refetch}
+            />
+          )}
+        </>
+      )}
+
+      {route === "Sign-Up" && (
+        <>
+          {open && (
+            <CustomModal
+              open={open}
+              setOpen={setOpen}
+              setRoute={setRoute}
+              activeItem={activeItem}
+              component={SignUp}
+            />
+          )}
+        </>
+      )}
+
+      {route === "Verification" && (
+        <>
+          {open && (
+            <CustomModal
+              open={open}
+              setOpen={setOpen}
+              setRoute={setRoute}
+              activeItem={activeItem}
+              component={Verification}
+            />
+          )}
+        </>
+      )}
     </nav>
+    
     </div>
     </div>
     )}
