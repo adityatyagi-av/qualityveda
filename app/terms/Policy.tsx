@@ -13,7 +13,7 @@ const Policy = (props: Props) => {
   <div className="px-4 max-w-screen-xl pb-20 mx-auto prose">
     <h2 className='text-3xl'>Introduction</h2>
     <p className='mt-3'>
-    Welcome to Quality Veda! These Terms of Use constitute a legal and binding agreement between you (referred to as “user” or “you”) and Quality Veda (hereinafter referred to as "we," "us," or "our"). These terms govern your use of our platform, including our website, mobile apps, and other services (collectively referred to as the “Platform”) and our training programs.
+    Welcome to Quality Veda! These Terms of Use constitute a legal and binding agreement between you (referred to as “user” or “you”) and Quality Veda (hereinafter referred to as {"we,"}{ "us,"} or {"our"}). These terms govern your use of our platform, including our website, mobile apps, and other services (collectively referred to as the “Platform”) and our training programs.
     <br />
     Please carefully review these Terms of Use, as well as our Privacy Policy and any other policies available on the Platform. By accessing or using the Platform, you consent to and agree to be bound by these Terms of Use. If you do not agree to these terms, you are not authorized to use the Platform.</p>
 
@@ -50,7 +50,7 @@ While we implement security measures to protect user accounts and information, w
 
     <h2 className='text-3xl mt-8'>Disclaimer</h2>
     <p className='mt-3'>
-    The information and services provided on the Platform are provided on an "as is" and "as available" basis. We make no representations or warranties regarding the accuracy, completeness, or reliability of the information or services provided.
+    The information and services provided on the Platform are provided on an {"as is"} and {"as available"} basis. We make no representations or warranties regarding the accuracy, completeness, or reliability of the information or services provided.
     <br />
     We are not liable for any damages or losses resulting from your use of the Platform or reliance on the information provided. We do not guarantee the availability or uninterrupted operation of the Platform.
     </p>
