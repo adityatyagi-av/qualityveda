@@ -6,35 +6,83 @@ import React, { useEffect, useState } from "react";
 import { IoCheckmarkDoneOutline, IoCloseOutline } from "react-icons/io5";
 import { format } from "timeago.js";
 import CourseContentList from "../Course/CourseContentList";
-import { Elements } from "@stripe/react-stripe-js";
-import CheckOutForm from "../Payment/CheckOutForm";
+import { toast } from "react-hot-toast";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Image from "next/image";
 import { VscVerifiedFilled } from "react-icons/vsc";
+import axios from "axios";
+import { useCreateOrderMutation, useCreatePaymentIntentMutation } from "@/redux/features/orders/ordersApi";
+import { redirect } from "next/navigation";
+import socketIO from "socket.io-client";
+const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
+const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 type Props = {
   data: any;
-  stripePromise: any;
-  clientSecret: string;
+ 
   setRoute: any;
   setOpen: any;
 };
 
 const CourseDetails = ({
   data,
-  stripePromise,
-  clientSecret,
+ 
+
   setRoute,
   setOpen: openAuthModal,
 }: Props) => {
+
   const { data: userData,refetch } = useLoadUserQuery(undefined, {});
   const [user, setUser] = useState<any>();
   const [open, setOpen] = useState(false);
+  const [orderDetails,setOrderDetails]=useState("");
+  const [orderFinalDetails,setOrderFinalDetails]=useState("");
+  const [createPaymentIntent, { data: paymentIntentData }] =
+    useCreatePaymentIntentMutation();
+    const [createOrder, { data: orderData,error }] =
+    useCreateOrderMutation();
 
+    function loadScript(src:any) {
+      return new Promise((resolve) => {
+        const script = document.createElement('script')
+        script.src = src
+        script.onload = () => {
+          resolve(true)
+        }
+        script.onerror = () => {
+          resolve(false)
+        }
+        document.body.appendChild(script)
+      })
+    }
+    
   useEffect(() => {
     setUser(userData?.user);
   }, [userData]);
-
+  useEffect(() => {
+    if (paymentIntentData) {
+      setOrderDetails(paymentIntentData);
+    }
+   
+  }, [paymentIntentData]);
+  useEffect(() => {
+    if(orderData){
+     refetch();
+     socketId.emit("notification", {
+        title: "New Order",
+        message: `You have a new order from ${data.name}`,
+        userId: user._id,
+     });
+     redirect(`/course-access/${data._id}`);
+    }
+    if(error){
+     if ("data" in error) {
+         const errorMessage = error as any;
+         toast.error(errorMessage.data.message);
+       }
+    }
+   }, [orderData,error])
+   
   const dicountPercentenge =
     ((data?.estimatedPrice - data.price) / data?.estimatedPrice) * 100;
 
@@ -43,20 +91,67 @@ const CourseDetails = ({
   const isPurchased =
     user && user?.courses?.find((item: any) => item._id === data._id);
 
-  const handleOrder = (e: any) => {
+  const handleOrder =async (amount: any) => {
     if (user) {
-      setOpen(true);
+     
+      const { data: { key } } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URI}/getkey`)
+      if(!key){
+        toast.error("Razropay failed to load!!"); 
+        return; 
+      }
+      const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+      
+      if (!res){
+        alert('Razropay failed to load!!')
+        return 
+      }
+      createPaymentIntent(amount);
+      
+      const options = {
+        key:key,
+        amount: orderDetails?.order.amount ,
+        currency: "INR",
+        name: data.name,
+        description: data.description,
+        image: data.thumbnail.url ,
+        order_id: orderDetails?.order?.id,
+        handler: function (response:any){
+          
+          createOrder({ courseId: data._id, payment_info: response })
+          alert(response.razorpay_payment_id);
+          alert(response.razorpay_order_id);
+          alert(response.razorpay_signature)
+      },
+  
+        prefill: {
+          name: user.name,
+          email: user.email,
+          
+      },
+        notes: {
+            "address": "Razorpay Corporate Office"
+        },
+        theme: {
+            "color": "#0000FF"
+        }
+    };
+      const paymentObject = new window.Razorpay(options); 
+  paymentObject.open();
+  
+
+
     } else {
-      setRoute("Login");
-      openAuthModal(true);
+      
+      toast.error("Please login to buy this course");
+      
     }
   };
 
   return (
     <div>
-      <div className="w-[90%] 800px:w-[90%] m-auto py-5">
-        <div className="w-full flex flex-col-reverse 800px:flex-row">
-          <div className="w-full 800px:w-[65%] 800px:pr-5">
+      <div className="w-[90%] md:w-[90%] m-auto py-5">
+        <div className="w-full flex flex-col-reverse md:flex-row">
+          <div className="w-full md:w-[65%] md:pr-5">
             <h1 className="text-[25px] font-Poppins font-[600] text-black dark:text-white">
               {data.name}
             </h1>
@@ -79,7 +174,7 @@ const CourseDetails = ({
             <div>
               {data.benefits?.map((item: any, index: number) => (
                 <div
-                  className="w-full flex 800px:items-center py-2"
+                  className="w-full flex md:items-center py-2"
                   key={index}
                 >
                   <div className="w-[15px] mr-1">
@@ -100,7 +195,7 @@ const CourseDetails = ({
               What are the prerequisites for starting this course?
             </h1>
             {data.prerequisites?.map((item: any, index: number) => (
-              <div className="w-full flex 800px:items-center py-2" key={index}>
+              <div className="w-full flex md:items-center py-2" key={index}>
                 <div className="w-[15px] mr-1">
                   <IoCheckmarkDoneOutline
                     size={20}
@@ -132,9 +227,9 @@ const CourseDetails = ({
             <br />
             <br />
             <div className="w-full">
-              <div className="800px:flex items-center">
+              <div className="md:flex items-center">
                 <Ratings rating={data?.ratings} />
-                <div className="mb-2 800px:mb-[unset]" />
+                <div className="mb-2 md:mb-[unset]" />
                 <h5 className="text-[25px] font-Poppins text-black dark:text-white">
                   {Number.isInteger(data?.ratings)
                     ? data?.ratings.toFixed(1)
@@ -160,7 +255,7 @@ const CourseDetails = ({
                           className="w-[50px] h-[50px] rounded-full object-cover"
                         />
                       </div>
-                      <div className="hidden 800px:block pl-2">
+                      <div className="hidden md:block pl-2">
                         <div className="flex items-center">
                           <h5 className="text-[18px] pr-2 text-black dark:text-white">
                             {item.user.name}
@@ -174,7 +269,7 @@ const CourseDetails = ({
                           {format(item.createdAt)} •
                         </small>
                       </div>
-                      <div className="pl-2 flex 800px:hidden items-center">
+                      <div className="pl-2 flex md:hidden items-center">
                         <h5 className="text-[18px] pr-2 text-black dark:text-white">
                           {item.user.name}
                         </h5>
@@ -182,7 +277,7 @@ const CourseDetails = ({
                       </div>
                     </div>
                     {item.commentReplies.map((i: any, index: number) => (
-                      <div className="w-full flex 800px:ml-16 my-5" key={index}>
+                      <div className="w-full flex md:ml-16 my-5" key={index}>
                         <div className="w-[50px] h-[50px]">
                           <Image
                             src={
@@ -213,7 +308,7 @@ const CourseDetails = ({
               )}
             </div>
           </div>
-          <div className="w-full 800px:w-[35%] relative">
+          <div className="w-full md:w-[35%] relative">
             <div className="sticky top-[100px] left-0 z-50 w-full">
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
               <div className="flex items-center">
@@ -239,51 +334,28 @@ const CourseDetails = ({
                 ) : (
                   <div
                     className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
-                    onClick={handleOrder}
+                    onClick={()=>handleOrder(data.price)}
                   >
                     Buy Now {data.price}INR
                   </div>
                 )}
               </div>
               <br />
-              <p className="pb-1 text-black dark:text-white">
-                • Source code included
-              </p>
+              
               <p className="pb-1 text-black dark:text-white">
                 • Full lifetime access
               </p>
               <p className="pb-1 text-black dark:text-white">
                 • Certificate of completion
               </p>
-              <p className="pb-3 800px:pb-1 text-black dark:text-white">
+              <p className="pb-3 md:pb-1 text-black dark:text-white">
                 • Premium Support
               </p>
             </div>
           </div>
         </div>
       </div>
-      <>
-        {open && (
-          <div className="w-full h-screen bg-[#00000036] fixed top-0 left-0 z-50 flex items-center justify-center">
-            <div className="w-[500px] min-h-[500px] bg-white rounded-xl shadow p-3">
-              <div className="w-full flex justify-end">
-                <IoCloseOutline
-                  size={40}
-                  className="text-black cursor-pointer"
-                  onClick={() => setOpen(false)}
-                />
-              </div>
-              <div className="w-full">
-                {stripePromise && clientSecret && (
-                  <Elements stripe={stripePromise} options={{ clientSecret }}>
-                    <CheckOutForm setOpen={setOpen} data={data} user={user} refetch={refetch} />
-                  </Elements>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
-      </>
+      
     </div>
   );
 };

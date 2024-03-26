@@ -14,7 +14,7 @@ const CoursePlayer: FC<Props> = ({ videoUrl }) => {
 
   useEffect(() => {
     axios
-      .post("https://diagruk-backend1.onrender.com/api/v1/getVdoCipherOTP", {
+      .post(`${process.env.NEXT_PUBLIC_SERVER_URI}/getVdoCipherOTP`, {
         videoId: videoUrl,
       })
       .then((res) => {
