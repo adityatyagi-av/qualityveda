@@ -26,8 +26,6 @@ type Props = {
 
 const CourseDetails = ({
   data,
- 
-
   setRoute,
   setOpen: openAuthModal,
 }: Props) => {
@@ -35,7 +33,7 @@ const CourseDetails = ({
   const { data: userData,refetch } = useLoadUserQuery(undefined, {});
   const [user, setUser] = useState<any>();
   const [open, setOpen] = useState(false);
-  const [orderDetails,setOrderDetails]=useState("");
+  const [orderDetails,setOrderDetails]=useState<any>({});
   const [orderFinalDetails,setOrderFinalDetails]=useState("");
   const [createPaymentIntent, { data: paymentIntentData }] =
     useCreatePaymentIntentMutation();
@@ -135,7 +133,7 @@ const CourseDetails = ({
             "color": "#0000FF"
         }
     };
-      const paymentObject = new window.Razorpay(options); 
+    const paymentObject = new (window as any).Razorpay(options);
   paymentObject.open();
   
 
