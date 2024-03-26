@@ -110,7 +110,7 @@ const CourseDetails = ({
         amount: orderDetails?.order.amount ,
         currency: "INR",
         name: data.name,
-        description: data.description,
+        description:"description of data ",
         image: data.thumbnail.url ,
         order_id: orderDetails?.order?.id,
         handler: function (response:any){
