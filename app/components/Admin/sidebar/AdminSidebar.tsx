@@ -17,6 +17,8 @@ import {
   WysiwygIcon,
   ManageHistoryIcon,
   ExitToAppIcon,
+  QuizIcon,
+  WebIcon,
 } from "./Icon";
 import avatarDefault from "../../../../public/assests/avatar.png";
 import { useSelector } from "react-redux";
@@ -225,7 +227,20 @@ const AdminSidebar = () => {
               {!isCollapsed && "Customization"}
             </Typography>
             
-            
+            <Item
+              title="Hero"
+              to="/admin/hero"
+              icon={<WebIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="FAQ"
+              to="/admin/faq"
+              icon={<QuizIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Item
               title="Categories"
               to="/admin/categories"
@@ -233,6 +248,7 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            
 
             <Typography
               variant="h5"

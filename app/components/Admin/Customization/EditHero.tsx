@@ -60,9 +60,9 @@ const EditHero: FC<Props> = (props: Props) => {
 
   return (
     <>
-      <div className="w-full 1000px:flex items-center">
-        <div className="absolute top-[100px] 1000px:top-[unset] 1500px:h-[700px] 1500px:w-[700px] 1100px:h-[500px] 1100px:w-[500px] h-[50vh] w-[50vh] hero_animation rounded-[50%] 1100px:left-[18rem] 1500px:left-[21rem]"></div>
-        <div className="1000px:w-[40%] flex 1000px:min-h-screen items-center justify-end pt-[70px] 1000px:pt-[0] z-10">
+      <div className="w-full lg:flex items-center">
+        <div className="absolute top-[100px] lg:top-[unset] 1500px:h-[700px] 1500px:w-[700px] 1100px:h-[500px] 1100px:w-[500px] h-[50vh] w-[50vh] hero_animation rounded-[50%] 1100px:left-[18rem] 1500px:left-[21rem]"></div>
+        <div className="lg:w-[40%] flex lg:min-h-screen items-center justify-end pt-[70px] lg:pt-[0] z-10">
           <div className="relative flex items-center justify-end">
             <img
               src={image}
@@ -82,10 +82,10 @@ const EditHero: FC<Props> = (props: Props) => {
             </label>
           </div>
         </div>
-        <div className="1000px:w-[60%] flex flex-col items-center 1000px:mt-[0px] text-center 1000px:text-left mt-[150px]">
+        <div className="lg:w-[60%] flex flex-col items-center lg:mt-[0px] text-center lg:text-left mt-[150px]">
           <textarea
-            className="dark:text-white resize-none text-[#000000c7] text-[30px] px-3 w-full 1000px:text-[60px] 1500px:text-[70px] font-[600] font-Josefin py-2 1000px:leading-[75px] 1500px:w-[60%] 1100px:w-[78%] outline-none bg-transparent block"
-            placeholder="Improve Your Online Learning Experience Better Instantly"
+            className="dark:text-white resize-none text-[#000000c7] text-[30px] px-3 w-full lg:text-[60px] 1500px:text-[70px] font-[600] font-Josefin py-2 lg:leading-[75px] 1500px:w-[60%] 1100px:w-[78%] outline-none bg-transparent block"
+            placeholder="enter course id"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             rows={4}
