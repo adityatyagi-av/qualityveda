@@ -8,9 +8,12 @@ type Props = {};
 
 const MainHero:FC<Props> = (props: Props) => {
   const { data, isLoading } = useGetHeroDataQuery("Banner", {});
+  
   const [content, setContent] = useState<any>();
   useEffect(() => {
     setContent(data?.layout);
+
+    console.log(data)
   }, [data]);
   const [search, setSearch] = useState("");
   const router = useRouter();
@@ -58,6 +61,7 @@ const MainHero:FC<Props> = (props: Props) => {
                 />
                 <div className="md:pr-1.5 lg:pr-0">
                   <button
+                  onClick={handleSearch}
                     type="button"
                     className="relative h-12 w-20 sm:w-auto ml-auto sm:px-6 before:absolute before:inset-0 before:rounded-full before:bg-[#005BC4] dark:before:bg-[#002E62] before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95"
                   >
@@ -70,11 +74,11 @@ const MainHero:FC<Props> = (props: Props) => {
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
-                      stroke-width="2"
+                      strokeWidth="2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                       />
                     </svg>
@@ -85,14 +89,11 @@ const MainHero:FC<Props> = (props: Props) => {
           </div>
         </div>
         <div className="overflow-hidden w-full lg:w-7/12 lg:-mr-16">
-          {isLoading ? (
-            <Link href={`/courses/${content?.banner?.title}`}>
+          {content ? (
+            <Link href={`/course/${content?.banner?.title}`}>
              <img
               src={content?.banner?.image?.url}
-              width={400}
-              height={400}
               alt=""
-              className="object-contain 1100px:max-w-[90%] w-[90%] 1500px:max-w-[85%] h-[auto] z-[10]"
             />
             </Link>
            
