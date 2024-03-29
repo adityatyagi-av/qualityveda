@@ -1,7 +1,12 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import { Box, IconButton, Typography } from "@mui/material";
+import { IconButton, Typography } from "@mui/material";
+import { Box as MuiBox, BoxProps, Theme } from "@mui/material";
+import { SystemProps } from "@mui/system";
+
+
+import { useTheme } from "next-themes";
 import "react-pro-sidebar/dist/css/styles.css";
 import {
   HomeOutlinedIcon,
@@ -25,7 +30,7 @@ import {
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
-import { useTheme } from "next-themes";
+
 
 interface itemProps {
   title: string;
@@ -47,7 +52,20 @@ const Item: FC<itemProps> = ({ title, to, icon, selected, setSelected }) => {
     </MenuItem>
   );
 };
+export interface CustomBoxProps extends SystemProps<Theme> {
+  sx?: BoxProps["sx"];
+  className?:any;
+  children?: React.ReactNode;
+  id?: string;
+}
 
+export function Box(props: CustomBoxProps) {
+  return <MuiBox component="div" {...props} />;
+}
+
+export function Main(props: CustomBoxProps) {
+  return <MuiBox component="main" {...props} />;
+}
 const AdminSidebar = () => {
   const { user } = useSelector((state: any) => state.auth);
   const [logout, setlogout] = useState(false);
