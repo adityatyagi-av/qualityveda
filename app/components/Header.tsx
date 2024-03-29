@@ -109,8 +109,9 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     <nav className=" py-8 mx-12  flex justify-between  items-center md:px-8">
       {/* Left Section - Company Name */}
       <div className="ml-4 md:ml-0">
-        <Link href="/" className="text-2xl dark:text-[#ffffff] font-bold text-black">
-          Quality Veda
+        <Link href="/" className="">
+          <Image src="/assests/qualityvedalogo.png" width={100} height={100} alt="Quality Veda Logo"/>
+          
         </Link>
       </div>
 
