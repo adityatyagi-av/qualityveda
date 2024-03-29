@@ -7,7 +7,7 @@ const Callback = (props: Props) => {
     <>
    
 
-<section className="bg-gray-100 dark:bg-hsl-custom">
+<section id='callback' className="bg-gray-100 dark:bg-hsl-custom">
 
   <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
   <h1 className="text-center my-6 font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
@@ -28,7 +28,7 @@ const Callback = (props: Props) => {
       </div>
 
       <div className="rounded-lg bg-white dark:bg-hsl-custom p-8 shadow-lg lg:col-span-3 lg:p-12">
-        <form action="#" className="space-y-4">
+        <form  className="space-y-4">
           <div>
             <label className="sr-only" htmlFor="name">Name</label>
             <input

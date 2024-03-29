@@ -6,9 +6,10 @@ const Policy = (props: Props) => {
   return (
     <>
     <section>
-  <div className="px-4 py-24 mb-20 text-left bg-gray-50 md:text-center">
-    <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 md:text-5xl">Refund Policy</h1>
-    <p className="text-base text-gray-500 md:text-lg">Last updated: 01 Mar 2024</p>
+    <div className="px-4 py-12 text-left bg-gray-50 dark:bg-hsl-custom md:text-center">
+    <h1 className="text-4xl font-bold leading-tight dark:text-white text-gray-900 md:text-5xl">Refund Policy</h1>
+    <p className="text-base mt-4 text-gray-500 md:text-lg">If you{`'`}re not satisfied, we{`'`}ll give your money back with <span className='text-black dark:text-white'>more drama than a saas-bahu saga! </span> </p>
+    <p className="text-base mt-2 text-gray-500 md:text-lg">Last updated: 01 Mar 2024</p>
   </div>
   <div className="px-4 max-w-screen-xl pb-20 mx-auto prose">
     <h2 className='text-3xl'>Refund Policy:</h2>

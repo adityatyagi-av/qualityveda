@@ -395,7 +395,7 @@ export function HeroNabl() {
   ];
 
   return (
-    <div className="flex flex-row items-center mt-[-10px] justify-center mx-auto max-w-screen-md h-screen md:h-auto dark:bg-hsl-custom bg-white relative w-full">
+    <div className="  h-screen md:h-auto dark:bg-hsl-custom bg-white relative w-full">
       <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
         <motion.div
           initial={{
