@@ -21,14 +21,14 @@ import Loader from "./Loader/Loader";
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
-  activeItem: number;
+  
   route: string;
   setRoute: (route: string) => void;
 };
 
 
 
-const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
+const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     const [active, setActive] = useState(false);
   
   const {data:userData,isLoading,refetch} = useLoadUserQuery(undefined,{});
@@ -145,13 +145,13 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
                     alt=""
                     width={30}
                     height={30}
-                    className="w-[30px] h-[30px] rounded-full cursor-pointer"
-                    style={{border: activeItem === 5 ? "2px solid #37a39a" : "none"}}
+                    className="w-[30px] h-[30px] rounded-full cursor-pointer 2px solid #37a39a"
+                    
                   />
                 </Link>
               ) : (
                 <button  onClick={() => setOpen(true)} className="neon bg-white text-purple-600 font-bold px-6 py-2 rounded-full border border-purple-600 text-sm">
-          Sign Up
+          Login
         </button>
                 
               )}
@@ -165,7 +165,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
               open={open}
               setOpen={setOpen}
               setRoute={setRoute}
-              activeItem={activeItem}
+              
               component={Login}
               refetch={refetch}
             />
@@ -180,7 +180,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
               open={open}
               setOpen={setOpen}
               setRoute={setRoute}
-              activeItem={activeItem}
+           
               component={SignUp}
             />
           )}
@@ -194,7 +194,7 @@ const Header: FC<Props> = ({ activeItem, setOpen, route, open, setRoute }) => {
               open={open}
               setOpen={setOpen}
               setRoute={setRoute}
-              activeItem={activeItem}
+            
               component={Verification}
             />
           )}

@@ -13,28 +13,33 @@ export const navItemsData = [
   {
     name: "Home",
     url: "/",
+    link:'home',
   },
   {
     name: "Courses",
     url: "/courses",
+    link:'courses',
   },
   {
     name: "NABL/NABH/CAP",
     url: "/nabl",
+    link:'nabl',
   },
   {
     name: "About Us",
     url: "/about",
+    link:'about',
   },
 
   {
     name: "Contact Us",
     url: "/contact",
+    link:'contact',
   },
 ];
 
 type Props = {
-  activeItem: number;
+  activeItem: string;
   isMobile: boolean;
 };
 
@@ -61,7 +66,7 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
                 <Link href={`${item.url}`} key={index} passHref>
                 <span
                   className={`${
-                    activeItem === index ? "text-[#003777]" : "tex-black"
+                    activeItem === item.link ? "text-purple-600" : "text-black dark:text-gray-200"
                   } text-[18px] px-6 font-Poppins font-[400]`}
                 >
                   {item.name}
