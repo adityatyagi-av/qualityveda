@@ -64,7 +64,7 @@ const About = (props: Props) => {
                     Our Mission
                   </h6>
                   <p className="text-sm dark:text-gray-300 text-gray-900">
-                  Our mission at Quality Veda is to equip medical professionals with the knowledge, skills, and tools necessary to deliver exceptional healthcare services, thereby elevating standards of patient care and safety.
+                  Our mission at QualityVeda is to equip medical professionals with the knowledge, skills, and tools necessary to deliver exceptional healthcare services, thereby elevating standards of patient care and safety.
                   </p>
                   <hr className="w-full my-6 border-gray-300" />
                 </div>
