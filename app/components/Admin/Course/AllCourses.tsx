@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button, Modal } from "@mui/material";
+import {  Button, Modal } from "@mui/material";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useTheme } from "next-themes";
 import { FiEdit2 } from "react-icons/fi";
@@ -13,6 +13,23 @@ import { format } from "timeago.js";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
 import Link from "next/link";
+import { Box as MuiBox, BoxProps, Theme } from "@mui/material";
+import { SystemProps } from "@mui/system";
+
+export interface CustomBoxProps extends SystemProps<Theme> {
+  sx?: BoxProps["sx"];
+  children?: React.ReactNode;
+  className?:any;
+  id?: string;
+}
+
+export function Box(props: CustomBoxProps) {
+  return <MuiBox component="div" {...props} />;
+}
+
+export function Main(props: CustomBoxProps) {
+  return <MuiBox component="main" {...props} />;
+}
 
 type Props = {};
 

@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button, Modal } from "@mui/material";
+import {  Button, Modal } from "@mui/material";
 import { AiOutlineDelete, AiOutlineMail } from "react-icons/ai";
 import { useTheme } from "next-themes";
 import Loader from "../../Loader/Loader";
@@ -12,7 +12,23 @@ import {
 } from "@/redux/features/user/userApi";
 import { styles } from "@/app/styles/style";
 import { toast } from "react-hot-toast";
+import { Box as MuiBox, BoxProps, Theme } from "@mui/material";
+import { SystemProps } from "@mui/system";
 
+export interface CustomBoxProps extends SystemProps<Theme> {
+  sx?: BoxProps["sx"];
+  children?: React.ReactNode;
+  className?:any;
+  id?: string;
+}
+
+export function Box(props: CustomBoxProps) {
+  return <MuiBox component="div" {...props} />;
+}
+
+export function Main(props: CustomBoxProps) {
+  return <MuiBox component="main" {...props} />;
+}
 type Props = {
   isTeam?: boolean;
 };

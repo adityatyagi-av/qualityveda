@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { Box } from "@mui/material";
+
 import { useTheme } from "next-themes";
 import { useGetAllCoursesQuery } from "@/redux/features/courses/coursesApi";
 import Loader from "../../Loader/Loader";
@@ -8,7 +8,23 @@ import { format } from "timeago.js";
 import { useGetAllOrdersQuery } from "@/redux/features/orders/ordersApi";
 import { useGetAllUsersQuery } from "@/redux/features/user/userApi";
 import { AiOutlineMail } from "react-icons/ai";
+import { Box as MuiBox, BoxProps, Theme } from "@mui/material";
+import { SystemProps } from "@mui/system";
 
+export interface CustomBoxProps extends SystemProps<Theme> {
+  sx?: BoxProps["sx"];
+  children?: React.ReactNode;
+  className?:any;
+  id?: string;
+}
+
+export function Box(props: CustomBoxProps) {
+  return <MuiBox component="div" {...props} />;
+}
+
+export function Main(props: CustomBoxProps) {
+  return <MuiBox component="main" {...props} />;
+}
 type Props = {
   isDashboard?: boolean;
 };
