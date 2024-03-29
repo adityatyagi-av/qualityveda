@@ -98,7 +98,7 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     isLoading ? (
       <Loader />
     ) : (
-      <div className="w-full my-6 dark:bg-hsl-custom relative">
+      <div className="w-full mb-6 dark:bg-hsl-custom relative">
         <div
         className={`${
           active
