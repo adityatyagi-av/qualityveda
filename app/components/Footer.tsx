@@ -1,13 +1,23 @@
 import Link from "next/link";
-type Props = {};
+import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
+import { useState ,useEffect} from "react";
+type Props = {
+   
+};
 
 const Footer = (props: Props) => {
+    const { data, isLoading } = useGetUsersAllCoursesQuery({});
+    const [courses, setCourses] = useState<any[]>([]);
+    useEffect(() => {
+        setCourses(data?.courses);
+      }, [data]);
+    
   return (
     <>
    <footer className="bg-white dark:bg-gray-900">
     <div className="container px-6 py-12 mx-auto">
         <div className="md:flex md:-mx-3 md:items-center md:justify-between">
-            <h1 className="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white">Ready for Expert Advice? Request a Call Back Now!</h1>
+            <h1 className="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white">Ready for Expert Advice? <span className="text-[#a6a6a6]">Request a Call Back Now!</span></h1>
             
             <div className="mt-6 md:mx-3 shrink-0 md:mt-0 md:w-auto">
                 <a href="tel:+919650878463" className="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg gap-x-3 hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
@@ -41,7 +51,11 @@ const Footer = (props: Props) => {
                 <p className="font-semibold text-gray-800 dark:text-white">Courses</p>
 
                 <div className="flex flex-col items-start mt-5 space-y-2">
-                    <a href="#" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">NABL Consultancy</a>
+                {courses &&
+            courses.map((item: any, index: number) => (
+                <Link key={index} href={ `/course/${item._id}`} className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">{item.name}</Link>
+            ))}
+                   
                     
                 </div>
             </div>

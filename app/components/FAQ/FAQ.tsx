@@ -23,7 +23,7 @@ const FAQ = (props: Props) => {
 
   return (
     <div>
-        <section className="bg-white my-10 dark:bg-gray-900">
+        <section className="bg-white my-10 dark:bg-hsl-custom">
     <div className="container max-w-4xl px-6 py-10 mx-auto">
         
     <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#010101] font-[700] tracking-tight">

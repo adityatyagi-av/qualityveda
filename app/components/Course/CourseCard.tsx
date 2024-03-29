@@ -59,12 +59,12 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
           width="640"
           height="805"
         />
-        <div className="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-gray-800 dark:bg-white translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
+        <div className="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-gray-800 translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
           <div>
-            <h4 className="text-xl font-semibold dark:text-gray-700 text-white">{item.name}</h4>
+            <h4 className="text-xl font-semibold  text-white">{item.name}</h4>
             <div className="flex py-2 justify-between">
             <span className="block text-sm text-gray-200">{item.purchased} learners</span>
-            <span className="block text-sm text-gray-200">56.5 hr</span>
+            {/* <span className="block text-sm text-gray-200">56.5 hr</span> */}
             </div>
             
             
@@ -77,7 +77,7 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
             </h5>
           </div>
           </div>
-          <p className="mt-8 text-gray-300 dark:text-gray-600">Quae labore quia tempora dolor impedit. Possimus, sint ducimus ipsam?</p>
+          <p className="mt-8 text-gray-300 ">Quae labore quia tempora dolor impedit. Possimus, sint ducimus ipsam?</p>
         </div>
         
       </div></Link>

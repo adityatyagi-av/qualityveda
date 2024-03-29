@@ -47,7 +47,50 @@ const CourseContent: FC<Props> = ({
     updatedData[index].links.push({ title: "", url: "" });
     setCourseContentData(updatedData);
   };
+  const handleLinkUrlChange = (sectionIndex: number, linkIndex: number, value: string) => {
+    setCourseContentData((prevData:any) => {
+      return prevData.map((section:any, i:number) => {
+        if (i === sectionIndex) {
+          return {
+            ...section,
+            links: section.links.map((link:any, j:number) => {
+              if (j === linkIndex) {
+                return {
+                  ...link,
+                  url: value
+                };
+              }
+              return link;
+            })
+          };
+        }
+        return section;
+      });
+    });
+  };
 
+  const handleLinkTitleChange = (sectionIndex: number, linkIndex: number, value: string) => {
+    setCourseContentData((prevData:any) => {
+      return prevData.map((section:any, i:number) => {
+        if (i === sectionIndex) {
+          return {
+            ...section,
+            links: section.links.map((link:any, j:number) => {
+              if (j === linkIndex) {
+                return {
+                  ...link,
+                  title: value
+                };
+              }
+              return link;
+            })
+          };
+        }
+        return section;
+      });
+    });
+  };
+  
   const newContentHandler = (item: any) => {
     if (
       item.title === "" ||
@@ -153,8 +196,11 @@ const CourseContent: FC<Props> = ({
                         } font-Poppins cursor-pointer dark:text-white text-black bg-transparent outline-none`}
                         value={item.videoSection}
                         onChange={(e) => {
-                          const updatedData = [...courseContentData];
-                          updatedData[index].videoSection = e.target.value;
+                          const updatedData = courseContentData.map((content:any,i:number)=>
+                          i===index?{...content,videoSection:e.target.value}
+                          :content
+                          );
+                          
                           setCourseContentData(updatedData);
                         }}
                       />
@@ -215,8 +261,11 @@ const CourseContent: FC<Props> = ({
                         className={`${styles.input}`}
                         value={item.title}
                         onChange={(e) => {
-                          const updatedData = [...courseContentData];
-                          updatedData[index].title = e.target.value;
+                          const updatedData = courseContentData.map((content:any,i:number)=>
+                          i===index?{...content,title:e.target.value}
+                          :content
+                          );
+                          
                           setCourseContentData(updatedData);
                         }}
                       />
@@ -229,8 +278,11 @@ const CourseContent: FC<Props> = ({
                         className={`${styles.input}`}
                         value={item.videoUrl}
                         onChange={(e) => {
-                          const updatedData = [...courseContentData];
-                          updatedData[index].videoUrl = e.target.value;
+                          const updatedData = courseContentData.map((content:any,i:number)=>
+                          i===index?{...content,videoUrl:e.target.value}
+                          :content
+                          );
+                        
                           setCourseContentData(updatedData);
                         }}
                       />
@@ -243,8 +295,11 @@ const CourseContent: FC<Props> = ({
                         className={`${styles.input}`}
                         value={item.videoLength}
                         onChange={(e) => {
-                          const updatedData = [...courseContentData];
-                          updatedData[index].videoLength = e.target.value;
+                          const updatedData = courseContentData.map((content:any,i:number)=>
+                          i===index?{...content,videoLength:e.target.value}
+                          :content
+                          );
+                          
                           setCourseContentData(updatedData);
                         }}
                       />
@@ -260,8 +315,11 @@ const CourseContent: FC<Props> = ({
                         className={`${styles.input} !h-min py-2`}
                         value={item.description}
                         onChange={(e) => {
-                          const updatedData = [...courseContentData];
-                          updatedData[index].description = e.target.value;
+                          const updatedData = courseContentData.map((content:any,i:number)=>
+                          i===index?{...content,description:e.target.value}
+                          :content
+                          );
+                          
                           setCourseContentData(updatedData);
                         }}
                       />
@@ -291,24 +349,14 @@ const CourseContent: FC<Props> = ({
                           placeholder="Source Code... (Link title)"
                           className={`${styles.input}`}
                           value={link.title}
-                          onChange={(e) => {
-                            const updatedData = [...courseContentData];
-                            updatedData[index].links[linkIndex].title =
-                              e.target.value;
-                            setCourseContentData(updatedData);
-                          }}
+                          onChange={(e:any) => handleLinkTitleChange(index, linkIndex, e.target.value)}
                         />
                         <input
                           type="url"
                           placeholder="Source Code Url... (Link URL)"
                           className={`${styles.input} mt-6`}
                           value={link.url}
-                          onChange={(e) => {
-                            const updatedData = [...courseContentData];
-                            updatedData[index].links[linkIndex].url =
-                              e.target.value;
-                            setCourseContentData(updatedData);
-                          }}
+                          onChange={(e:any) => handleLinkUrlChange(index, linkIndex, e.target.value)}
                         />
                       </div>
                     ))}

@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import CourseCard from "../Course/CourseCard";
 import Link from "next/link";
 
-type Props = {};
+type Props = {
+  
+};
 
 const Courses = (props: Props) => {
   const { data, isLoading } = useGetUsersAllCoursesQuery({});
@@ -17,7 +19,7 @@ const Courses = (props: Props) => {
     <div className="dark:bg-hsl-custom">
       <div className={`w-[90%] 800px:w-[80%] m-auto`}>
         <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
-        Upgradation Programs: <span className="text-gray-600 text-gradient">Choose what{`'`}s best for you</span>{" "}
+        Upgradation Programs: <span className="text-[#a6a6a6]  text-gradient">Choose what{`'`}s best for you</span>{" "}
           
         </h1>
         <br />

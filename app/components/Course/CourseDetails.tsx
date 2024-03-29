@@ -147,9 +147,9 @@ const CourseDetails = ({
 
   return (
     <div>
-      <div className="w-[90%] md:w-[90%] m-auto py-5">
-        <div className="w-full flex flex-col-reverse md:flex-row">
-          <div className="w-full md:w-[65%] md:pr-5">
+      <div className="w-[90%] 800px:w-[90%] m-auto py-5">
+        <div className="w-full flex flex-col-reverse 800px:flex-row">
+          <div className="w-full 800px:w-[65%] 800px:pr-5">
             <h1 className="text-[25px] font-Poppins font-[600] text-black dark:text-white">
               {data.name}
             </h1>
@@ -172,7 +172,7 @@ const CourseDetails = ({
             <div>
               {data.benefits?.map((item: any, index: number) => (
                 <div
-                  className="w-full flex md:items-center py-2"
+                  className="w-full flex 800px:items-center py-2"
                   key={index}
                 >
                   <div className="w-[15px] mr-1">
@@ -193,7 +193,7 @@ const CourseDetails = ({
               What are the prerequisites for starting this course?
             </h1>
             {data.prerequisites?.map((item: any, index: number) => (
-              <div className="w-full flex md:items-center py-2" key={index}>
+              <div className="w-full flex 800px:items-center py-2" key={index}>
                 <div className="w-[15px] mr-1">
                   <IoCheckmarkDoneOutline
                     size={20}
@@ -225,9 +225,9 @@ const CourseDetails = ({
             <br />
             <br />
             <div className="w-full">
-              <div className="md:flex items-center">
+              <div className="800px:flex items-center">
                 <Ratings rating={data?.ratings} />
-                <div className="mb-2 md:mb-[unset]" />
+                <div className="mb-2 800px:mb-[unset]" />
                 <h5 className="text-[25px] font-Poppins text-black dark:text-white">
                   {Number.isInteger(data?.ratings)
                     ? data?.ratings.toFixed(1)
@@ -253,7 +253,7 @@ const CourseDetails = ({
                           className="w-[50px] h-[50px] rounded-full object-cover"
                         />
                       </div>
-                      <div className="hidden md:block pl-2">
+                      <div className="hidden 800px:block pl-2">
                         <div className="flex items-center">
                           <h5 className="text-[18px] pr-2 text-black dark:text-white">
                             {item.user.name}
@@ -267,7 +267,7 @@ const CourseDetails = ({
                           {format(item.createdAt)} •
                         </small>
                       </div>
-                      <div className="pl-2 flex md:hidden items-center">
+                      <div className="pl-2 flex 800px:hidden items-center">
                         <h5 className="text-[18px] pr-2 text-black dark:text-white">
                           {item.user.name}
                         </h5>
@@ -275,7 +275,7 @@ const CourseDetails = ({
                       </div>
                     </div>
                     {item.commentReplies.map((i: any, index: number) => (
-                      <div className="w-full flex md:ml-16 my-5" key={index}>
+                      <div className="w-full flex 800px:ml-16 my-5" key={index}>
                         <div className="w-[50px] h-[50px]">
                           <Image
                             src={
@@ -306,7 +306,7 @@ const CourseDetails = ({
               )}
             </div>
           </div>
-          <div className="w-full md:w-[35%] relative">
+          <div className="w-full 800px:w-[35%] relative">
             <div className="sticky top-[100px] left-0 z-50 w-full">
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
               <div className="flex items-center">
@@ -346,7 +346,7 @@ const CourseDetails = ({
               <p className="pb-1 text-black dark:text-white">
                 • Certificate of completion
               </p>
-              <p className="pb-3 md:pb-1 text-black dark:text-white">
+              <p className="pb-3 800px:pb-1 text-black dark:text-white">
                 • Premium Support
               </p>
             </div>

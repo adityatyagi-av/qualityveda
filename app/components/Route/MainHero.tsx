@@ -25,12 +25,9 @@ const MainHero:FC<Props> = (props: Props) => {
     }
   };
   return (
-    <div className="my-20 max-w-screen-xl mx-auto px-6 md:px-12">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 my-auto w-96 h-32 rotate-45 bg-gradient-to-r from-primaryLight to-secondaryLight blur-3xl opacity-50 dark:opacity-20"
-      ></div>
-      <div className="relative lg:flex lg:items-center lg:gap-12">
+    <div className="my-20 dark:bg-hsl-custom max-w-screen-xl mx-auto px-6 md:px-12">
+     
+      <div className="relative dark:bg-hsl-custom lg:flex lg:items-center lg:gap-12">
         <div className="text-center lg:text-left md:mt-12 lg:mt-0 sm:w-10/12 md:w-2/3 sm:mx-auto lg:mr-auto lg:w-6/12">
           <h1 className="text-gray-900 font-bold text-4xl md:text-6xl lg:text-5xl xl:text-6xl dark:text-white">
             The best way to upgrade yourself starts here.
@@ -65,7 +62,7 @@ const MainHero:FC<Props> = (props: Props) => {
                     type="button"
                     className="relative h-12 w-20 sm:w-auto ml-auto sm:px-6 before:absolute before:inset-0 before:rounded-full before:bg-[#005BC4] dark:before:bg-[#002E62] before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95"
                   >
-                    <span className="relative hidden w-max text-white dark:text-gray-900 font-semibold md:block">
+                    <span className="relative hidden w-max text-white dark:text-white font-semibold md:block">
                       Search
                     </span>
                     <svg

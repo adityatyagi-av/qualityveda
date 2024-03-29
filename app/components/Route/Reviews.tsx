@@ -55,8 +55,11 @@ const Reviews = (props: Props) => {
         <div>
             <div className="lg:px-20 md:px-6 px-4 py-20">
                 <div className="flex flex-col items-center justify-center">
-                    <h1 className="lg:text-4xl text-3xl font-bold text-center dark:text-gray-50 text-gray-800">See What Others Are Saying</h1>
-                    <p className="text-base leading-6 mt-4 text-center dark:text-gray-200  text-gray-600 2xl:w-2/5 ">Real Stories, Real Results.</p>
+                <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#010101] font-[700] tracking-tight">
+                See What Others Are Saying: <span className="text-[#a6a6a6] text-gradient">Real Stories, Real Results.</span>{" "}
+          
+        </h1>
+                   
                 </div>
                 <div className="w-full lg:flex items-center gap-6 mt-10">
                     <div className="lg:w-1/2">

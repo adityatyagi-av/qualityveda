@@ -2,14 +2,11 @@
 import React, { FC, useEffect, useState } from "react";
 import Heading from "./utils/Heading";
 
-import Hero from "./components/Route/Hero";
+
 import Courses from "./components/Route/Courses";
 import Reviews from "./components/Route/Reviews";
-
 import Stats from "./components/Route/Stats";
-import Contact from "./components/Route/Contact";
 import MainHero from "./components/Route/MainHero";
-
 import Slider from "./components/Route/Slider";
 import FAQ from "./components/FAQ/FAQ";
 
@@ -28,12 +25,12 @@ const Page: FC<Props> = (props) => {
       <MainHero/>
       <Courses />
       <Slider/>
-      <Hero />
+     
 
       <Stats/>
-      <FAQ/>
-      <Reviews />
       
+      <Reviews />
+      <FAQ/>
       {/* <Contact/> */}
      
     </div>
