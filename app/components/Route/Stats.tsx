@@ -18,15 +18,11 @@ const Stats = (props: Props) => {
           
           <div className="text-center">
           <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#010101] font-[700] tracking-tight">
-          Impact Statistics <span className="text-[#a6a6a6] text-gradient"></span>{" "}
+          Impact Statistics <span className="text-[#a6a6a6] text-gradient"> Empowering Hundreds, One Institution at a Time: Witness the Impact.</span>{" "}
           
         </h1>
-            <h1 className="text-4xl font-bold tracking-tight dark:text-gray-50 text-gray-900 sm:text-6xl">
-              
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-[#a6a6a6]">
-            Empowering Hundreds, One Institution at a Time: Witness the Impact.
-            </p>
+          
+          
             
           </div>
         </div>
