@@ -98,12 +98,12 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     isLoading ? (
       <Loader />
     ) : (
-      <div className="w-full dark:bg-hsl-custom relative">
+      <div className="w-full my-6 dark:bg-hsl-custom relative">
         <div
         className={`${
           active
             ? "dark:bg-opacity-50 bg-white dark:bg-gradient-to-b dark:bg-hsl-custom fixed top-0 left-0 w-full h-[80px] z-[80] border-b  shadow-xl transition duration-500"
-            : "w-full dark:bg-hsl-custom  dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow"
+            : "w-full  dark:bg-hsl-custom  dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow"
         }`}
       >
     <nav className=" py-8 mx-12  flex justify-between  items-center md:px-8">
