@@ -2,14 +2,31 @@ import React, { FC, useEffect, useState } from "react";
 import UserAnalytics from "../Analytics/UserAnalytics";
 import { BiBorderLeft } from "react-icons/bi";
 import { PiUsersFourLight } from "react-icons/pi";
-import { Box, CircularProgress } from "@mui/material";
+import {  CircularProgress } from "@mui/material";
 import OrdersAnalytics from "../Analytics/OrdersAnalytics";
 import AllInvoices from "../Order/AllInvoices";
 import {
   useGetOrdersAnalyticsQuery,
   useGetUsersAnalyticsQuery,
 } from "@/redux/features/analytics/analyticsApi";
+import { Box as MuiBox, BoxProps, Theme } from "@mui/material";
+import { SystemProps } from "@mui/system";
 
+export interface CustomBoxProps extends SystemProps<Theme> {
+  sx?: BoxProps["sx"];
+  children?: React.ReactNode;
+  className?:any;
+  
+  id?: string;
+}
+
+export function Box(props: CustomBoxProps) {
+  return <MuiBox component="div" {...props} />;
+}
+
+export function Main(props: CustomBoxProps) {
+  return <MuiBox component="main" {...props} />;
+}
 type Props = {
   open?: boolean;
   value?: number;
@@ -24,7 +41,7 @@ const CircularProgressWithLabel: FC<Props> = ({ open, value }) => {
         size={45}
         color={value && value > 99 ? "info" : "error"}
         thickness={4}
-        style={{ zIndex: open ? -1 : 1 }}
+        // style={{ zIndex: open ? -1 : 1 }}
       />
       <Box
         sx={{
