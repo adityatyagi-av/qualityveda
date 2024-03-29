@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState(0);
+  
   const [route, setRoute] = useState("Login");
   const pathname = usePathname();
   const text1 = pathname?.split("/")[1];
@@ -53,7 +53,7 @@ export default function RootLayout({
                     <Header
                       open={open}
                       setOpen={setOpen}
-                      activeItem={activeItem}
+                     
                       setRoute={setRoute}
                       route={route}
                     />
