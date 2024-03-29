@@ -31,13 +31,12 @@ const About = (props: Props) => {
                     height="24"
                   />
                 </svg>
-                <span className="  dark:text-gray-50  relative">How</span>
+                <span className="  dark:text-gray-50  relative">Know More About</span>
               </span>{' '}
-              does Quality Veda imporves your learning
+              Us
             </h2>
             <p className="text-base  dark:text-gray-300  text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque rem aperiam, eaque ipsa quae.
+            
             </p>
           </div>
           <div className="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
@@ -62,12 +61,10 @@ const About = (props: Props) => {
                 </div>
                 <div>
                   <h6 className="mb-2 font-semibold leading-5">
-                    They urge you to put down
+                    Our Mission
                   </h6>
                   <p className="text-sm dark:text-gray-300 text-gray-900">
-                    Skate ipsum dolor sit amet, alley oop vert mute-air Colby Carter
-                    flail 180 berm. Half-cab camel back ollie transition ledge Wes
-                    Humpston 1080.
+                  Our mission at Quality Veda is to equip medical professionals with the knowledge, skills, and tools necessary to deliver exceptional healthcare services, thereby elevating standards of patient care and safety.
                   </p>
                   <hr className="w-full my-6 border-gray-300" />
                 </div>
@@ -92,10 +89,10 @@ const About = (props: Props) => {
                 </div>
                 <div>
                   <h6 className="mb-2 font-semibold leading-5">
-                    The powerless in a world
+                  Our Vision
                   </h6>
                   <p className="text-sm dark:text-gray-300 text-gray-900">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam rem fugit, in fuga praesentium nulla magnam cum ea velit eum perspiciatis quaerat iste tempora aut.
+                  We aim to wipe out all substandard medical services from India, ensuring that every individual receives quality healthcare that meets the highest standards of excellence and compassion.
                   </p>
                   <hr className="w-full my-6 border-gray-300" />
                 </div>
@@ -120,12 +117,10 @@ const About = (props: Props) => {
                 </div>
                 <div>
                   <h6 className="mb-2 font-semibold leading-5">
-                    Tell them I hate them
+                    Services We provide
                   </h6>
                   <p className="text-sm dark:text-gray-300 text-gray-900">
-                    Chase ball of string eat plants, meow, and throw up because I
-                    ate plants going to catch the red dot today going to catch the
-                    red dot today. I could pee on this if I had the energy.
+                    We provide a variety of services including Quality Manager on Desk, NABL/NABH/CAP Consultancy
                   </p>
                 </div>
               </div>

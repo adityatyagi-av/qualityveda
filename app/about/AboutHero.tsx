@@ -6,29 +6,28 @@ type Props = {}
 const AboutHero = (props: Props) => {
   return (
     
-<div className="bg-white mx-auto max-w-screen-xl dark:bg-hsl-custom overflow-hidden relative lg:flex lg:items-center">
-    <div className="w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-        <h2 className="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
-            <span className="block">
-                About QualityVeda Courses
-            </span>
-        </h2>
-        <p className="text-md mt-4 text-gray-400">
-            The state of Utah in the united states is home to lots of beautiful National parks, Bryce national canion park ranks as three of the most magnificient &amp; awe inspiring.
-        </p>
-        <div className="lg:mt-0 lg:flex-shrink-0">
-            
-        </div>
-    </div>
-    <div className="flex items-center gap-8 p-8 lg:p-24">
-        <img src="/assests/download.jpg" className="w-1/2 rounded-lg" alt="Tree"/>
-        <div>
-            <img src="/assests/download.jpg" className="mb-8 rounded-lg" alt="Tree"/>
-            <img src="/assests/download.jpg" className="rounded-lg" alt="Tree"/>
-        </div>
-    </div>
-</div>
 
+<header className="bg-white max-w-screen-xl mx-auto dark:bg-gray-900">
+   
+
+    <div className="container px-6 py-16 mx-auto">
+        <div className="items-center lg:flex">
+            <div className="w-full lg:w-1/2">
+                <div className="lg:max-w-lg">
+                    <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Who We Are?<br/> </h1>
+                    
+                    <p className="mt-3 text-gray-600 dark:text-gray-400"><span className="text-3xl font-semibold  dark:text-white lg:text-4xl text-yellow-500 ">Quality Veda</span> is a leading platform offering a diverse array of training programs encompassing various medical standards, our platform serves as the School of Medical, bridging the gap between theoretical knowledge and practical application.</p>
+                    
+                  
+                </div>
+            </div>
+
+            <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                <img className="w-full h-full lg:max-w-3xl" src="/assests/download.jpg" alt="About Quality Veda"/>
+            </div>
+        </div>
+    </div>
+</header>
   )
 }
 
