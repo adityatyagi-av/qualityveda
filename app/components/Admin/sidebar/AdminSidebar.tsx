@@ -20,7 +20,8 @@ import {
   QuizIcon,
   WebIcon,
 } from "./Icon";
-import avatarDefault from "../../../../public/assests/avatar.png";
+
+
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
@@ -64,7 +65,7 @@ const AdminSidebar = () => {
   const logoutHandler = () => {
     setlogout(true);
   };
-
+ 
   return (
     <Box
       sx={{
@@ -138,7 +139,7 @@ const AdminSidebar = () => {
                   alt="profile-user"
                   width={100}
                   height={100}
-                  src={user.avatar ? user.avatar.url : avatarDefault}
+                  src={user.avatar ? user.avatar.url : "/assests/avatar.png"}
                   style={{
                     cursor: "pointer",
                     borderRadius: "50%",
