@@ -74,12 +74,12 @@ const Footer = (props: Props) => {
         
         <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700"/>
         
-        <div className="flex flex-col items-center justify-between sm:flex-row">
-            <a href="#">
-              <span className="text-2xl text-black">Quality Veda</span>
-            </a>
+        <div className="flex flex-col gap-3 items-center justify-between sm:flex-row">
+            <Link href="/">
+              <div className="text-2xl h-[24px]"><img src="/assests/qualityvedalogo.png" className="h-[50px] "/></div>
+            </Link>
 
-            <p className="mt-4 text-sm text-gray-500 sm:mt-0 dark:text-gray-300">© 2024 All rights reversed. Just kidding, they{`'`}re all still reserved.</p>
+            <p className=" text-sm text-gray-500 sm:mt-0 mt-10 md:mt-4 dark:text-gray-300">© 2024 All rights reversed. Just kidding, they{`'`}re all still reserved.</p>
         </div>
     </div>
 </footer>

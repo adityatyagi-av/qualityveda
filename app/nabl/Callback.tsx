@@ -11,17 +11,21 @@ const Callback = (props: Props) => {
 
   <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
   <h1 className="text-center my-6 font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
-        Get a Callback  <span className="text-[#a6a6a6]  text-gradient"></span>{" "}
+        Get a Call Back  <span className="text-[#a6a6a6]  text-gradient"></span>{" "}
           
         </h1>
     <div className="grid  grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
       <div className="lg:col-span-2 lg:py-12">
         <p className="max-w-xl text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. A beatae aspernatur quisquam recusandae cum quos optio, ratione officiis culpa dicta ipsum, quam, repudiandae id. Exercitationem repellat illum harum, autem laborum enim vero, aliquid non natus eius debitis similique beatae ullam.
+        🎬 Lights, Camera, Action! Your chance to be the star of our show!
+          <br />
+          <br />
+🌟 Ever dreamt of having your own personal assistant? Well, consider us your backstage crew ready to make your dreams a reality! Just drop your details below, and we{`'`}ll roll out the red carpet with a callback that{`'`}s sure to steal the spotlight!🎥
+
         </p>
 
         <div className="mt-8">
-          <a href="#" className="text-2xl font-bold text-pink-600"> +91 888 250 9194 </a>
+          <a href="#" className="text-2xl font-bold text-pink-600"> +91 88825 09194 </a>
 
           <address className="mt-2 not-italic">206, 3rd Floor, Silver Home - 2, opposite 14th Avenue, Greater Noida, Ghaziabad, Uttar Pradesh 201301</address>
         </div>
@@ -79,7 +83,7 @@ const Callback = (props: Props) => {
               type="submit"
               className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
             >
-              Recieve Callback
+              Recieve Call Back
             </button>
           </div>
         </form>

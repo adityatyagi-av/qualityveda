@@ -23,10 +23,7 @@ const Quality = (props: Props) => {
           500 Hospitals and Labs
 have trusted us so far
         </h2>
-        <p className="my-8 text-gray-600 dark:text-gray-300">
-          Nobis minus voluptatibus pariatur dignissimos libero quaerat iure expedita at?
-          Asperiores nemo possimus nesciunt dicta veniam aspernatur quam mollitia.
-        </p>
+        
         <div className="divide-y space-y-4 divide-gray-100 dark:divide-gray-800">
           <div className="mt-8 flex gap-4 md:items-center">
             <div className="w-12 h-12 flex gap-4 rounded-full bg-indigo-100 dark:bg-indigo-900/20">
@@ -35,8 +32,9 @@ have trusted us so far
               </svg>        
             </div>
             <div className="w-5/6">
-              <h4 className="font-semibold text-lg text-gray-700 dark:text-indigo-300">Availabity 24*7</h4>
-              <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
+              <h4 className="font-semibold text-lg text-gray-700 dark:text-indigo-300">Save on Costs, Ensure Success</h4>
+              <p className="text-gray-500 dark:text-gray-400">Our Quality Manager ensures a smooth assessment process, winning the trust of assessors and saving labs and hospitals valuable resources.
+</p>
             </div> 
           </div> 
           <div className="pt-4 flex gap-4 md:items-center">
@@ -46,8 +44,9 @@ have trusted us so far
               </svg>                                      
             </div>
             <div className="w-5/6">
-              <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">On Location Access</h4>
-              <p className="text-gray-500 dark:text-gray-400">Asperiores nemo possimus nesciunt quam mollitia.</p>
+              <h4 className="font-semibold text-lg text-gray-700 dark:text-teal-300">Cost-Effective Documentation</h4>
+              <p className="text-gray-500 dark:text-gray-400">Receive all necessary documents digitally, empowering labs and hospitals to handle future assessments independently, saving on consultancy fees and investing wisely in internal quality processes.
+</p>
             </div> 
           </div> 
         </div>

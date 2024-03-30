@@ -9,7 +9,7 @@ const Policy = (props: Props) => {
       
     <div className="px-4 py-12 text-left bg-gray-50 dark:bg-hsl-custom md:text-center">
     <h1 className="text-4xl font-bold leading-tight dark:text-white text-gray-900 md:text-5xl">Terms and Condition</h1>
-    <p className="text-base mt-4 text-gray-500 md:text-lg"><span className='text-black dark:text-white'>Bhool Bhulaiyaa: </span>Reading this is like navigating a maze, but with less cheese and more legal jargon.</p>
+    <p className="text-lg mt-4 text-gray-500 md:text-2xl"><span className='text-black dark:text-white'>Bhool Bhulaiyaa: </span>Reading this is like navigating a maze, but with less cheese and more legal jargon.</p>
     <p className="text-base mt-2 text-gray-500 md:text-lg">Last updated: 01 Mar 2024</p>
   </div>
   <div className="px-4 max-w-screen-xl pb-20 mx-auto prose">
