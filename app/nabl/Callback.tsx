@@ -1,8 +1,58 @@
+"use client"
 import React from 'react'
-
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
+import toast from 'react-hot-toast';
 type Props = {}
 
 const Callback = (props: Props) => {
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .max(25, "Must be 25 characters or less")
+      .required("Required"),
+    phone:Yup.string().required("Required"),
+    email: Yup.string().email("Invalid email address").required("Required"),
+    message: Yup.string().required("Required"),
+  });
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      phone:"",
+      email: "",
+      message: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: async (values) => { 
+      const toastId = toast.loading('Sending your message');
+      toastId;
+      try {
+       
+        axios.post(`${process.env.NEXT_PUBLIC_SERVER_URI}/send-nabl-message`, {
+          name: values.name,
+          email: values.email,
+          phone:values.phone,
+          message:values.message,
+        }).then((res:any)=>{
+          
+          toast.success('Sent Call Back Request', {
+            id: toastId,
+          });
+           
+        }) .catch(function (error) {
+          toast.error(error.message,{
+            id: toastId,
+          })
+        });
+        
+        
+      } catch (error) {
+        console.error("An error occurred:", error);
+      }
+    },
+  });
+
+
   return (
     <>
    
@@ -32,35 +82,50 @@ const Callback = (props: Props) => {
       </div>
 
       <div className="rounded-lg bg-white dark:bg-hsl-custom p-8 shadow-lg lg:col-span-3 lg:p-12">
-        <form  className="space-y-4">
+        <form onSubmit={formik.handleSubmit}  className="space-y-4">
           <div>
-            <label className="sr-only" htmlFor="name">Name</label>
+            <label className="sr-only" htmlFor="name">Name {formik.touched.name && formik.errors.name ? (
+                        <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.name}*)`}</span>
+                      ) : null}</label>
             <input
               className="w-full rounded-lg border-gray-200 p-3 text-sm"
               placeholder="Name"
               type="text"
               id="name"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.name}
             />
           </div>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label className="sr-only" htmlFor="email">Email</label>
+              <label className="sr-only" htmlFor="email">Email {formik.touched.email && formik.errors.email ? (
+                        <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.email}*)`}</span>
+                      ) : null}</label>
               <input
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"
                 placeholder="Email address"
                 type="email"
                 id="email"
+                onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
               />
             </div>
 
             <div>
-              <label className="sr-only" htmlFor="phone">Phone</label>
+              <label className="sr-only" htmlFor="phone">Phone {formik.touched.phone && formik.errors.phone ? (
+                        <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.phone}*)`}</span>
+                      ) : null}</label>
               <input
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"
                 placeholder="Phone Number"
                 type="tel"
                 id="phone"
+                onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.phone}
               />
             </div>
           </div>
@@ -68,13 +133,18 @@ const Callback = (props: Props) => {
         
 
           <div>
-            <label className="sr-only" htmlFor="message">Message</label>
+            <label className="sr-only" htmlFor="message">Message {formik.touched.message && formik.errors.message ? (
+                        <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.message}*)`}</span>
+                      ) : null}</label>
 
             <textarea
               className="w-full rounded-lg border-gray-200 p-3 text-sm"
               placeholder="Message"
               
               id="message"
+              onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.message}
             ></textarea>
           </div>
 

@@ -11,7 +11,7 @@ const MainHero = (props: Props) => {
     
     <div className="relative lg:flex lg:items-center lg:gap-12">
         <div className="text-center lg:text-left  sm:w-10/12 md:w-2/3 sm:mx-auto lg:mr-auto lg:w-6/12">
-            <h1 className="text-gray-900 font-bold text-4xl md:text-6xl lg:text-5xl xl:text-6xl dark:text-white"><span className="text-gray-700 dark:text-gray-600">Quality Veda: </span>Making Accreditation Easy & Affordable for All
+            <h1 className="text-gray-900 font-bold text-4xl md:text-6xl lg:text-5xl xl:text-6xl dark:text-white"><span className="text-gray-700 dark:text-gray-600"></span>Making Accreditation Easy & Affordable for All
  </h1>
             <p className="mt-8 text-gray-600 dark:text-gray-300">Discover the affordability and efficiency of accreditation services with Quality Veda. Join hundreds of labs and hospitals worldwide in achieving excellence without breaking the bank.</p>
             <div className='flex justify-center items-center my-6'>

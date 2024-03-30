@@ -140,7 +140,7 @@ const AdminSidebar = () => {
               >
                <Link href="/" className="block">
                <h3 className="text-[25px] font-Poppins uppercase dark:text-white text-black">
-                  ELearning
+                  QualityVeda
                 </h3>
                </Link>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)} className="inline-block">
@@ -212,6 +212,13 @@ const AdminSidebar = () => {
               title="Invoices"
               to="/admin/invoices"
               icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+             <Item
+              title="NABL Queries"
+              to="/admin/nabl"
+              icon={<WebIcon className="text-black dark:text-white" />}
               selected={selected}
               setSelected={setSelected}
             />
