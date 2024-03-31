@@ -274,7 +274,9 @@ const AdminSidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
+          
             
+           
 
             <Typography
               variant="h5"
@@ -284,12 +286,69 @@ const AdminSidebar = () => {
               {!isCollapsed && "Controllers"}
             </Typography>
             <Item
-              title="Manage Team"
+              title="Manage Admins"
               to="/admin/team"
               icon={<PeopleOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+            <Item
+              title="Create Testimonial"
+              to="/admin/create-testimonial"
+              icon={<WebIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Current Testimonial"
+              to="/admin/testimonials"
+              icon={<QuizIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Add Labs"
+              to="/admin/create-lab"
+              icon={<WebIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Current Labs"
+              to="/admin/labs"
+              icon={<QuizIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Add Doctors"
+              to="/admin/create-doctor"
+              icon={<WebIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Current Doctors"
+              to="/admin/doctors"
+              icon={<QuizIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Add Team Member"
+              to="/admin/create-team"
+              icon={<WebIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Current Team"
+              to="/admin/teams"
+              icon={<QuizIcon className="text-black dark:text-white" />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            
 
             <Typography
               variant="h6"
