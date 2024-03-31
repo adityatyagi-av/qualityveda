@@ -48,10 +48,10 @@ const TeamPreview: FC<Props> = ({
         </div>
         </div><div className="w-full">
           <h1 className="text-[25px] font-Poppins font-[600]">
-            Teams Description
+            Team link
           </h1>
           <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
-            {teamData?.description}
+            {teamData?.link}
           </p>
         </div>
         <br />

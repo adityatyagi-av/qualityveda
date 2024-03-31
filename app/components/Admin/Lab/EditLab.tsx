@@ -40,8 +40,8 @@ const EditLab:FC<Props> = ({id}) => {
     if (editLabData) {
       setLabInfo({
         name: editLabData.name,
-        description: editLabData.description,
-       designation:editLabData.designation,
+        address: editLabData.address,
+       link:editLabData.link,
         image: editLabData?.image?.url,
       })
     }
@@ -50,9 +50,9 @@ const EditLab:FC<Props> = ({id}) => {
 
   const [labInfo, setLabInfo] = useState({
     name: "",
-    description:  "",
+    address:  "",
     image:  "",
-    designation:"",
+    link:"",
   });
   
 
@@ -66,8 +66,8 @@ const EditLab:FC<Props> = ({id}) => {
     //   prepare our data object
     const data = {
       name: labInfo.name,
-      description: labInfo.description,
-      designation:labInfo.designation,
+      address: labInfo.address,
+      link:labInfo.link,
       image: labInfo.image,
       
     };

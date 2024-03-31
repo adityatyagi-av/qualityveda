@@ -24,7 +24,7 @@ const TeamInformation: FC<Props> = ({
   const handleOptions = () => {
     if (
      teamInfo.name===""||
-     teamInfo.description===""||
+     teamInfo.link===""||
      teamInfo.designation===""
     ) {
       toast.error("field can't be empty!");
@@ -101,18 +101,19 @@ const TeamInformation: FC<Props> = ({
         <br />
         <div className="mb-5">
           <label className={`${styles.label}`}>Write Team</label>
-          <textarea
-            name=""
-            id=""
-            cols={30}
-            rows={8}
-            placeholder="Write something amazing..."
-            className={`${styles.input} !h-min !py-2`}
-            value={teamInfo.description}
+          <input
+              type="text"
+              required
+              name=""
+              id="link"
+            placeholder="Team Id"
+            className={`
+            ${styles.input}`}
+            value={teamInfo.link}
             onChange={(e: any) =>
-              setTeamInfo({ ...teamInfo, description: e.target.value })
+              setTeamInfo({ ...teamInfo, link: e.target.value })
             }
-          ></textarea>
+          />
         </div>
         <br />
         

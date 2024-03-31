@@ -48,10 +48,10 @@ const DoctorPreview: FC<Props> = ({
         </div>
         </div><div className="w-full">
           <h1 className="text-[25px] font-Poppins font-[600]">
-            Doctors Description
+            Link
           </h1>
           <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
-            {doctorData?.description}
+            {doctorData?.link}
           </p>
         </div>
         <br />

@@ -24,8 +24,8 @@ const LabInformation: FC<Props> = ({
   const handleOptions = () => {
     if (
      labInfo.name===""||
-     labInfo.description===""||
-     labInfo.designation===""
+     labInfo.address===""||
+     labInfo.link===""
     ) {
       toast.error("field can't be empty!");
     } else {
@@ -83,7 +83,7 @@ const LabInformation: FC<Props> = ({
     <div className="w-[80%] m-auto mt-24">
       <form onSubmit={handleSubmit} className={`${styles.label}`}>
         <div>
-          <label htmlFor="">Person Name</label>
+          <label htmlFor="">Lab Name</label>
           <input
             type="name"
             name=""
@@ -108,9 +108,9 @@ const LabInformation: FC<Props> = ({
             rows={8}
             placeholder="Write something amazing..."
             className={`${styles.input} !h-min !py-2`}
-            value={labInfo.description}
+            value={labInfo.address}
             onChange={(e: any) =>
-              setLabInfo({ ...labInfo, description: e.target.value })
+              setLabInfo({ ...labInfo, address: e.target.value })
             }
           ></textarea>
         </div>
@@ -120,15 +120,15 @@ const LabInformation: FC<Props> = ({
         <div className="w-full flex justify-between">
           <div className="w-[45%]">
             <label className={`${styles.label}`} htmlFor="email">
-              Person{`'`}s designation
+              Lab link
             </label>
             <input
               type="text"
               required
               name=""
-              value={labInfo.designation}
+              value={labInfo.link}
               onChange={(e: any) =>
-                setLabInfo({ ...labInfo, designation: e.target.value })
+                setLabInfo({ ...labInfo, link: e.target.value })
               }
               id="tags"
               placeholder="Senior Advocate"

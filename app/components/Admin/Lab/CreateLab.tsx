@@ -29,9 +29,9 @@ const CreateLab = (props: Props) => {
   const [active, setActive] = useState(0);
   const [labInfo, setLabInfo] = useState({
     name: "",
-    description: "",
+    address: "",
     image: "",
-    designation:"",
+    link:"",
   });
   
  
@@ -43,9 +43,9 @@ const CreateLab = (props: Props) => {
     //   prepare our data object
     const data = {
       name: labInfo.name,
-      description: labInfo.description,
+      address: labInfo.address,
       image:labInfo.image,
-      designation:labInfo.designation,
+      link:labInfo.link,
     };
     setLabData(data);
   };

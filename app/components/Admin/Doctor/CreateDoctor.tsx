@@ -29,7 +29,7 @@ const CreateDoctor = (props: Props) => {
   const [active, setActive] = useState(0);
   const [doctorInfo, setDoctorInfo] = useState({
     name: "",
-    description: "",
+    link: "",
     image: "",
     designation:"",
   });
@@ -43,7 +43,7 @@ const CreateDoctor = (props: Props) => {
     //   prepare our data object
     const data = {
       name: doctorInfo.name,
-      description: doctorInfo.description,
+      link: doctorInfo.link,
       image:doctorInfo.image,
       designation:doctorInfo.designation,
     };

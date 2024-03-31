@@ -46,7 +46,7 @@ const AllDoctors = (props: Props) => {
     // { field: "id", headerName: "ID", flex: 0.5 },
     { field: "name", headerName: "Name", flex: 0.4 },
     { field: "designation", headerName: "Designation", flex: 0.5 },
-    { field: "description", headerName: "Description", flex: 2},
+    { field: "link", headerName: "Link", flex: 2},
     { field: "created_at", headerName: "Created At", flex: 0.5 },
     {
       field: "  ",
@@ -95,7 +95,7 @@ const AllDoctors = (props: Props) => {
           id: item._id,
           name: item.name,
           designation:item.designation,
-          description: item.description,
+          link: item.link,
           created_at: format(item.createdAt),
         });
       });

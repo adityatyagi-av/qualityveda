@@ -40,7 +40,7 @@ const EditDoctor:FC<Props> = ({id}) => {
     if (editDoctorData) {
       setDoctorInfo({
         name: editDoctorData.name,
-        description: editDoctorData.description,
+        link: editDoctorData.link,
        designation:editDoctorData.designation,
         image: editDoctorData?.image?.url,
       })
@@ -50,7 +50,7 @@ const EditDoctor:FC<Props> = ({id}) => {
 
   const [doctorInfo, setDoctorInfo] = useState({
     name: "",
-    description:  "",
+    link:  "",
     image:  "",
     designation:"",
   });
@@ -66,7 +66,7 @@ const EditDoctor:FC<Props> = ({id}) => {
     //   prepare our data object
     const data = {
       name: doctorInfo.name,
-      description: doctorInfo.description,
+      link: doctorInfo.link,
       designation:doctorInfo.designation,
       image: doctorInfo.image,
       

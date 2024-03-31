@@ -24,7 +24,7 @@ const DoctorInformation: FC<Props> = ({
   const handleOptions = () => {
     if (
      doctorInfo.name===""||
-     doctorInfo.description===""||
+     doctorInfo.link===""||
      doctorInfo.designation===""
     ) {
       toast.error("field can't be empty!");
@@ -83,7 +83,7 @@ const DoctorInformation: FC<Props> = ({
     <div className="w-[80%] m-auto mt-24">
       <form onSubmit={handleSubmit} className={`${styles.label}`}>
         <div>
-          <label htmlFor="">Person Name</label>
+          <label htmlFor="">Doctor Name</label>
           <input
             type="name"
             name=""
@@ -100,19 +100,19 @@ const DoctorInformation: FC<Props> = ({
         </div>
         <br />
         <div className="mb-5">
-          <label className={`${styles.label}`}>Write Doctor</label>
-          <textarea
+          <label className={`${styles.label}`}>Link</label>
+          <input
+            type="text"
+            required
             name=""
-            id=""
-            cols={30}
-            rows={8}
-            placeholder="Write something amazing..."
-            className={`${styles.input} !h-min !py-2`}
-            value={doctorInfo.description}
+            placeholder="Enter the link."
+            className={`
+            ${styles.input}`}
+            value={doctorInfo.link}
             onChange={(e: any) =>
-              setDoctorInfo({ ...doctorInfo, description: e.target.value })
+              setDoctorInfo({ ...doctorInfo, link: e.target.value })
             }
-          ></textarea>
+          />
         </div>
         <br />
         
@@ -130,7 +130,7 @@ const DoctorInformation: FC<Props> = ({
               onChange={(e: any) =>
                 setDoctorInfo({ ...doctorInfo, designation: e.target.value })
               }
-              id="tags"
+              
               placeholder="Senior Advocate"
               className={`
             ${styles.input}`}

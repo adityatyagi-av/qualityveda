@@ -29,7 +29,7 @@ const CreateTeam = (props: Props) => {
   const [active, setActive] = useState(0);
   const [teamInfo, setTeamInfo] = useState({
     name: "",
-    description: "",
+    link: "",
     image: "",
     designation:"",
   });
@@ -43,7 +43,7 @@ const CreateTeam = (props: Props) => {
     //   prepare our data object
     const data = {
       name: teamInfo.name,
-      description: teamInfo.description,
+      link: teamInfo.link,
       image:teamInfo.image,
       designation:teamInfo.designation,
     };

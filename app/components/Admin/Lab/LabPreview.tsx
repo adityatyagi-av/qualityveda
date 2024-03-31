@@ -33,25 +33,25 @@ const LabPreview: FC<Props> = ({
       <div className="w-full">
         <div className="w-full">
           <h1 className="text-[25px] font-Poppins font-[600]">
-            Person Name
+            Lab Name
           </h1>
           <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
             {labData?.name}
           </p>
           <div className="w-full">
           <h1 className="text-[25px] font-Poppins font-[600]">
-            Person{`'`}s Designation
+            Lab Link
           </h1>
           <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
-            {labData?.designation}
+            {labData?.address}
           </p>
         </div>
         </div><div className="w-full">
           <h1 className="text-[25px] font-Poppins font-[600]">
-            Labs Description
+            Labs address
           </h1>
           <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
-            {labData?.description}
+            {labData?.address}
           </p>
         </div>
         <br />

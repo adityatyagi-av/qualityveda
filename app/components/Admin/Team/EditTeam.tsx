@@ -40,7 +40,7 @@ const EditTeam:FC<Props> = ({id}) => {
     if (editTeamData) {
       setTeamInfo({
         name: editTeamData.name,
-        description: editTeamData.description,
+        link: editTeamData.link,
        designation:editTeamData.designation,
         image: editTeamData?.image?.url,
       })
@@ -50,7 +50,7 @@ const EditTeam:FC<Props> = ({id}) => {
 
   const [teamInfo, setTeamInfo] = useState({
     name: "",
-    description:  "",
+    link:  "",
     image:  "",
     designation:"",
   });
@@ -66,7 +66,7 @@ const EditTeam:FC<Props> = ({id}) => {
     //   prepare our data object
     const data = {
       name: teamInfo.name,
-      description: teamInfo.description,
+      link: teamInfo.link,
       designation:teamInfo.designation,
       image: teamInfo.image,
       
