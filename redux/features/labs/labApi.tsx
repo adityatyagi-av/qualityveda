@@ -2,6 +2,13 @@ import { apiSlice } from "../api/apiSlice";
 
 export const labApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+    getUsersAllLabs: builder.query({
+      query: () => ({
+        url: "get-labs",
+        method: "GET",
+        credentials: "include" as const,
+      }),
+    }),
     createLab: builder.mutation({
       query: (data) => ({
         url: "create-lab",
@@ -32,13 +39,7 @@ export const labApi = apiSlice.injectEndpoints({
         credentials: "include" as const,
       }),
     }),
-    getUsersAllLabs: builder.query({
-      query: () => ({
-        url: "get-labs",
-        method: "GET",
-        credentials: "include" as const,
-      }),
-    }),
+    
     
     
   }),

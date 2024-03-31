@@ -1,100 +1,29 @@
 type Props = {}
-const teachers=[
-    {
-        id:'1',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'2',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'3',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'4',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'5',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'6',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'7',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'8',
-        src:'',
-        name:"Aditya Tyagi"
-    },{
-        id:'9',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'10',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'11',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-    {
-        id:'12',
-        src:'',
-        name:"Aditya Tyagi"
-    },
-]
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Doctor from "./Doctor"
+import Team from "./Team"
+
 const AboutTeam = (props: Props) => {
   return (
     
-<div id="team" className="p-8 bg-white rounded-lg shadow dark:bg-hsl-custom">
-    <p className="text-3xl font-bold text-center text-gray-800 dark:text-white">
-        The big team
-    </p>
-    <p className="mb-12 text-xl font-normal text-center text-gray-500 dark:text-gray-300">
-        Meat the best educators of world
-    </p>
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+<div id="team" className="p-8 mx-auto max-w-screen-xl bg-white rounded-lg shadow dark:bg-hsl-custom">
+  
+        <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
+        Our Dream Team: <span className="text-[#a6a6a6]  text-gradient">The Brains behind the Brilliance!</span>{" "}
+          
+        </h1>
+    
         
-            {teachers.map((teacher)=>{
-                return(
-                    <div className="p-4" key={teacher.id}>
-                        <div className="flex-col  flex justify-center items-center">
-                <div className="flex-shrink-0">
-                    <a href="#" className="relative block">
-                        <img alt="profil" src="/assests/client-3.jpg" className="mx-auto object-cover rounded-full h-20 w-20 "/>
-                    </a>
-                </div>
-                <div className="mt-2 text-center flex flex-col">
-                    <span className="text-lg font-medium text-gray-600 dark:text-white">
-                        {teacher.name}
-                    </span>
-                    <span className="text-xs text-gray-400">
-                        Quality Manager
-                    </span>
-                </div>
-            </div>
-        </div>
-                )
-            })}
+    <Tabs defaultValue="doctor" className="items-center justify-center mx-auto">
+  <TabsList className="grid w-[420px] mx-auto my-4 mb-6 grid-cols-2 justify-center items-center">
+    <TabsTrigger value="doctor">Doctor Team</TabsTrigger>
+    <TabsTrigger value="main">Working Team</TabsTrigger>
+  </TabsList>
+  <TabsContent value="doctor"><Doctor/></TabsContent>
+  <TabsContent value="main"><Team/></TabsContent>
+</Tabs>
     </div>
-</div>
+
 
   )
 }

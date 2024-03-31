@@ -4,6 +4,7 @@ import MainHero from './MainHero'
 import Why from './Why'
 import Quality from './Quality'
 import Callback from './Callback'
+import NablCarousel from '../components/Carousel/LabCarousel'
 
 type Props = {}
 
@@ -12,7 +13,9 @@ const page = (props: Props) => {
     <>
     <MainHero/>
     <Quality/>
+    
     <Why/>
+    <NablCarousel/>
     <Callback/>
     </>
   )
