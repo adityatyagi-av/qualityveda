@@ -1,20 +1,22 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React ,{FC} from 'react'
 
 type Props = {
     url?:string;
-    imageLink?:string;
+    imageLink:string;
     
 }
 
 const ImageCard: FC<Props>= ({url,imageLink}) => {
   return (
     <>
-   <Link href={`${url}`}><div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-   <div className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md" style={{backgroundImage: `url(${imageLink})`}}></div>
+   <Link href={`${url}`}>
+   
+   <Image src={imageLink} width={150} height={150} className="w-48 h-32" alt="image" />
 
   
-</div></Link>
+</Link>
 </>
   )
 

@@ -16,7 +16,7 @@ const Individual:FC<Props> = ({imageLink,url,name,designation}) => {
     <img className="object-cover w-full h-56" src={imageLink} alt="avatar"/>
 
     <div className="py-5 text-center">
-        <Link href="#" className="block text-xl font-bold text-gray-800 dark:text-white"  role="link">{name}</Link>
+        <Link href={url} className="block text-xl font-bold text-gray-800 dark:text-white"  role="link">{name}</Link>
         <span className="text-sm text-gray-700 dark:text-gray-200">{designation}</span>
     </div>
 </div>
