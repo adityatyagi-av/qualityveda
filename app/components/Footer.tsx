@@ -61,11 +61,11 @@ const Footer = (props: Props) => {
             </div>
 
             <div>
-                <Link href="/nabl#callback" className="font-semibold text-gray-800 dark:text-white">Contact Us</p>
+                <Link href="/nabl#callback" className="font-semibold text-gray-800 dark:text-white">Contact Us</Link>
 
                 <div className="flex flex-col items-start mt-5 space-y-2">
                    <Link href="" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">QualityVeda (A unit of Sirajex Diagnostics Pvt. Ltd.)
-</a>
+</Link>
                     <a href="" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">+91 888 250 9194
 </a>
                     <a href="mailto:connect@qualityveda.co " className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">connect@qualityveda.co </a>
