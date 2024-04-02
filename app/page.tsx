@@ -26,7 +26,7 @@ const Page: FC<Props> = (props) => {
       <MainHero/>
       <Courses />
      
-        <h1 className="text-center mt-10 mb-5 font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
+        <h1 className="text-center mt-16 mb-14 font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
         Our partner: <span className="text-[#a6a6a6]  text-gradient">Institutions, Labs, Hospitals etc...</span>{" "}
           
         </h1>

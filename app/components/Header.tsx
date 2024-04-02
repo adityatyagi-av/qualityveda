@@ -117,19 +117,19 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
 
       {/* Center Section - Navigation Links */}
       <div className="hidden lg:flex flex-grow justify-center space-x-8">
-        <Link href="/" className={`font-semibold  hover:text-purple-600 ${currentLink==='home'?"text-purple-600":"text-gray-600 dark:text-gray-200"}` }>
+        <Link href="/" className={`font-semibold  hover:text-purple-600 ${currentLink==='home'?"text-purple-600":"text-[#a6a6a6] dark:text-gray-200"}` }>
           Home
         </Link>
-        <Link href="/courses" className={`font-semibold  hover:text-purple-600 ${currentLink==='courses'?"text-purple-600":"text-gray-600 dark:text-gray-200"}` }>
+        <Link href="/courses" className={`font-semibold  hover:text-purple-600 ${currentLink==='courses'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
           Courses
         </Link>
-        <Link href="/nabl" className={`font-semibold  hover:text-purple-600 ${currentLink==='nabl'?"text-purple-600":"text-gray-600 dark:text-gray-200"}` }>
+        <Link href="/nabl" className={`font-semibold  hover:text-purple-600 ${currentLink==='nabl'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
         NABL/NABH/CAP
         </Link>
         {/* <Link href="/qualitymanager" className="font-semibold text-gray-600 hover:text-purple-600">
           QM Desk
         </Link> */}
-        <Link href="/about" className={`font-semibold  hover:text-purple-600 ${currentLink==='about'?"text-purple-600":"text-gray-600 dark:text-gray-200"}` }>
+        <Link href="/about" className={`font-semibold  hover:text-purple-600 ${currentLink==='about'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
           About Us
         </Link>
       </div>

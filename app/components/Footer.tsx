@@ -16,11 +16,13 @@ const Footer = (props: Props) => {
     <>
    <footer className="bg-white dark:bg-gray-900">
     <div className="container px-6 py-12 mx-auto">
-        <div className="md:flex md:-mx-3 md:items-center md:justify-between">
-            <h1 className="text-xl font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white">Ready for Expert Advice? <span className="text-[#a6a6a6]">Request a Call Back Now!</span></h1>
+        <div className=" md:-mx-3 mx-auto">
+            <h1 className="text-xl text-center font-semibold tracking-tight text-gray-800 md:mx-3 xl:text-2xl dark:text-white">Ready for Expert Advice? <span className="text-[#a6a6a6]">Request a Call Back Now!</span></h1>
             
-            <div className="mt-6 md:mx-3 shrink-0 md:mt-0 md:w-auto">
-                <Link href="/nabl#callback" className="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg gap-x-3 hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
+            
+        </div>
+        <div className="mt-6 flex  shrink-0 mx-auto md:w-auto">
+                <Link href="/nabl#callback" className="inline-flex w-40 mx-auto  items-center justify-center  px-4 py-2 text-sm text-white duration-300 bg-gray-800 rounded-lg gap-x-3 hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
                     <span>Get Callback</span>
 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
@@ -28,7 +30,6 @@ const Footer = (props: Props) => {
                     </svg>
                 </Link>
             </div>
-        </div>
         
         <hr className="my-6 border-gray-200 md:my-10 dark:border-gray-700"/>
 

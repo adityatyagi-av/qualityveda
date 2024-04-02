@@ -23,8 +23,8 @@ const FAQ = (props: Props) => {
 
   return (
     <div>
-        <section className="bg-white my-10 dark:bg-hsl-custom">
-    <div className="container max-w-4xl px-6 py-10 mx-auto">
+        <section className="bg-white my-2 dark:bg-hsl-custom">
+    <div className="container max-w-4xl px-6 py-6 mx-auto">
         
     <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#010101] font-[700] tracking-tight">
     Unlock Answers to Your Queries: <span className="text-[#a6a6a6] text-gradient">Dive into Our FAQs!</span>{" "}

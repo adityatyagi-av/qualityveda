@@ -31,7 +31,7 @@ const Reviews = (props: Props) => {
   return (
    <>
         <div>
-            <div className="lg:px-20 md:px-6 px-4 py-20">
+            <div className="lg:px-20 md:px-6 px-4 py-14">
                 <div className="flex flex-col items-center justify-center">
                 <h1 className="pb-6 text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#010101] font-[700] tracking-tight">
                 See What Others Are Saying: <span className="text-[#a6a6a6] text-gradient">Real Stories, Real Results.</span>{" "}

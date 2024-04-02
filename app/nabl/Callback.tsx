@@ -59,7 +59,7 @@ const Callback = (props: Props) => {
 
 <section id='callback' className="bg-gray-100 dark:bg-hsl-custom">
 
-  <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+  <div className="mx-auto max-w-screen-xl px-4 py-8 my-8 sm:px-6 lg:px-8">
   <h1 className="text-center my-6 font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] tracking-tight">
         Get a Call Back  <span className="text-[#a6a6a6]  text-gradient"></span>{" "}
           

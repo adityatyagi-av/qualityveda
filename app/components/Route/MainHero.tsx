@@ -53,8 +53,8 @@ const MainHero:FC<Props> = (props: Props) => {
                   type="search"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search Course"
-                  className="w-full p-4 rounded-full placeholder-gray-600 dark:placeholder-white bg-transparent"
+                  placeholder=" Search Course"
+                  className="w-full p-4 bg-inherit border-current rounded-full placeholder-gray-600 dark:placeholder-white "
                 />
                 <div className="md:pr-1.5 lg:pr-0">
                   <button
