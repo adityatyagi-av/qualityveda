@@ -13,7 +13,7 @@ const Page = (props: Props) => {
       <Heading
         title="Shipping Policy - Elearning"
         description="Elearning is a learning management system for helping programmers."
-        keywords="programming,mern"
+        keywords="Medical Education"
       />
      
       <Policy />

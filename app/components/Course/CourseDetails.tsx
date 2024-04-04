@@ -37,6 +37,7 @@ const CourseDetails = ({
   const [orderFinalDetails,setOrderFinalDetails]=useState("");
   const [createPaymentIntent, { data: paymentIntentData }] =
     useCreatePaymentIntentMutation();
+    
     const [createOrder, { data: orderData,error }] =
     useCreateOrderMutation();
 
@@ -80,12 +81,8 @@ const CourseDetails = ({
        }
     }
    }, [orderData,error])
-   
-  const dicountPercentenge =
-    ((data?.estimatedPrice - data.price) / data?.estimatedPrice) * 100;
-
-  const discountPercentengePrice = dicountPercentenge.toFixed(0);
-
+  
+  
   const isPurchased =
     user && user?.courses?.find((item: any) => item._id === data._id);
 
@@ -142,8 +139,15 @@ const CourseDetails = ({
       
       toast.error("Please login to buy this course");
       
+
+
+
+
     }
   };
+
+  
+
 
   return (
     <div>
@@ -311,15 +315,19 @@ const CourseDetails = ({
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
               <div className="flex items-center">
                 <h1 className="pt-5 text-[25px] text-black dark:text-white">
-                  {data.price === 0 ? "Free" : data.price + "$"}
+                  {data.price === 0 ? "Free" :"₹"+ data.price }
                 </h1>
+                {data.estimatedPrice && 
                 <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80 text-black dark:text-white">
-                  {data.estimatedPrice}$
-                </h5>
-
-                <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
-                  {discountPercentengePrice}% Off
-                </h4>
+                ₹ {data.estimatedPrice}
+                </h5>}
+                
+                { (data.estimatedPrice) &&
+                 <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
+                 {(((data?.estimatedPrice - data.price) / data?.estimatedPrice) * 100).toFixed(0)}% Off
+               </h4>                
+}
+               
               </div>
               <div className="flex items-center">
                 {isPurchased ? (
@@ -334,7 +342,7 @@ const CourseDetails = ({
                     className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
                     onClick={()=>handleOrder(data.price)}
                   >
-                    Buy Now {data.price}INR
+                    Buy Now ₹{data.price} 
                   </div>
                 )}
               </div>
