@@ -16,8 +16,8 @@ const AboutTeam = (props: Props) => {
         
     <Tabs defaultValue="doctor" className="items-center justify-center mx-auto">
   <TabsList className="grid w-[420px] mx-auto my-4 mb-6 grid-cols-2 justify-center items-center">
-    <TabsTrigger value="doctor">Doctor Team</TabsTrigger>
-    <TabsTrigger value="main">Working Team</TabsTrigger>
+    <TabsTrigger value="doctor">Trainers</TabsTrigger>
+    <TabsTrigger value="main">Core Team</TabsTrigger>
   </TabsList>
   <TabsContent value="doctor"><Doctor/></TabsContent>
   <TabsContent value="main"><Team/></TabsContent>

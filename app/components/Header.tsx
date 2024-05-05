@@ -18,6 +18,7 @@ import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Loader from "./Loader/Loader";
 
 
+
 type Props = {
   open: boolean;
   setOpen: (open: boolean) => void;
@@ -98,17 +99,17 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     isLoading ? (
       <Loader />
     ) : (
-      <div className="w-full pb-2 dark:bg-hsl-custom relative">
+      <div className="w-full pb-2 dark:bg-hsl-custom bg-white relative">
         <div
         className={`${
           active
-            ? "dark:bg-opacity-50 bg-white pb-4 dark:bg-gradient-to-b dark:bg-hsl-custom fixed top-0 left-0 w-full h-[80px] z-[80] border-b  shadow-xl transition duration-500"
+            ? "dark:bg-opacity-50 bg-white  pb-4 dark:bg-gradient-to-b dark:bg-hsl-custom fixed top-0 left-0 w-full h-[80px] z-[80] border-b  shadow-xl transition duration-500"
             : "w-full  dark:bg-hsl-custom  dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow"
         }`}
       >
-    <nav className=" py-8 mx-12  flex justify-between  items-center md:px-8">
+    <nav className="  py-4 mx-12  flex justify-between  items-center md:px-8">
       {/* Left Section - Company Name */}
-      <div className="sm:ml-0 ml-4 md:ml-0">
+      <div className="sm:ml-0 mb-0 ml-4 md:ml-0">
         <Link href="/" className="">
           <img src="/assests/qualityvedalogo.png" width={100} height={100}  alt="Quality Veda Logo"/>
           
@@ -116,7 +117,7 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
       </div>
 
       {/* Center Section - Navigation Links */}
-      <div className="hidden lg:flex flex-grow justify-center space-x-8">
+      <div className="hidden lg:flex flex-grow justify-center space-x-8 ">
         <Link href="/" className={`font-semibold  hover:text-purple-600 ${currentLink==='home'?"text-purple-600":"text-[#a6a6a6] dark:text-gray-200"}` }>
           Home
         </Link>
@@ -146,7 +147,7 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
                     alt=""
                     width={30}
                     height={30}
-                    className="w-[30px] h-[30px] rounded-full cursor-pointer 2px solid #37a39a"
+                    className="w-[30px]  h-[30px] rounded-full cursor-pointer 2px solid #37a39a"
                     
                   />
                 </Link>
@@ -158,7 +159,8 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
               )}
         
       </div>
-      <NavItems activeItem={currentLink} isMobile={true} />
+      <NavItems 
+       activeItem={currentLink} isMobile={true} />
       {route === "Login" && (
         <>
           {open && (

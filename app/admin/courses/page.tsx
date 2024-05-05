@@ -11,6 +11,7 @@ type Props = {}
 const page = (props: Props) => {
   return (
     <div>
+  
       <AdminProtected>
         <Heading
           title="Elearning - Admin"
