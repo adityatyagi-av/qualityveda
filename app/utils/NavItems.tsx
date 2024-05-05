@@ -64,8 +64,9 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
 
               
               {navItemsData&&navItemsData.map((item,index)=>(
-                <SheetClose asChild>
+             
                   <Link href={`${item.url}`} key={index} passHref>
+                       <SheetClose asChild>
                 <span
                   className={`${
                     activeItem === item.link ? "text-purple-600" : "text-black dark:text-gray-200"
@@ -73,8 +74,9 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
                 >
                   {item.name}
                 </span>
-              </Link>
                 </SheetClose>
+              </Link>
+                
               ))}
               </nav>
             </SheetContent>
