@@ -3,8 +3,6 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
   } from "@/components/ui/carousel"
 import ImageCard from "../Card/ImageCard"
 import React, { useEffect, useState } from 'react'

@@ -238,8 +238,22 @@ const AdminSidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Live Courses"
+              title="Active Courses"
               to="/admin/courses"
+              icon={<OndemandVideoIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Create Live Course"
+              to="/admin/live-create-course"
+              icon={<VideoCallIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Live Active Courses"
+              to="/admin/live-courses"
               icon={<OndemandVideoIcon />}
               selected={selected}
               setSelected={setSelected}
