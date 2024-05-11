@@ -11,7 +11,7 @@ import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Image from "next/image";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import axios from "axios";
-import { useCreateOrderMutation, useCreatePaymentIntentMutation } from "@/redux/features/orders/ordersApi";
+import { useCreateLiveOrderMutation, useCreatePaymentIntentMutation } from "@/redux/features/orders/ordersApi";
 import { redirect } from "next/navigation";
 import socketIO from "socket.io-client";
 const ENDPOINT = process.env.NEXT_PUBLIC_SOCKET_SERVER_URI || "";
@@ -39,7 +39,7 @@ const CourseDetails = ({
     useCreatePaymentIntentMutation();
     
     const [createOrder, { data: orderData,error }] =
-    useCreateOrderMutation();
+    useCreateLiveOrderMutation();
 
     function loadScript(src:any) {
       return new Promise((resolve) => {
@@ -72,7 +72,7 @@ const CourseDetails = ({
         message: `You have a new order from ${data.name}`,
         userId: user._id,
      });
-     redirect(`/course-access/${data._id}`);
+     redirect(`/live-course-access/${data._id}`);
     }
     if(error){
      if ("data" in error) {
@@ -84,9 +84,10 @@ const CourseDetails = ({
   
   
   const isPurchased =
-    user && user?.courses?.find((item: any) => item._id === data._id);
+    user && user?.livecourses?.find((item: any) => item._id === data._id);
 
   const handleOrder =async (amount: any) => {
+    console.log("Data:", data);
     if (user) {
      
       const { data: { key } } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URI}/getkey`)
@@ -108,7 +109,8 @@ const CourseDetails = ({
         currency: "INR",
         name: data.name,
         description:"description of data ",
-        image: data.thumbnail.url ,
+        image: data.thumbnail?.url || "https://www.qualityveda.co/assests/qualityvedalogo.png",
+
         order_id: orderDetails?.order?.id,
         handler: function (response:any){
           

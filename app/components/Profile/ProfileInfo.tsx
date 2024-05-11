@@ -16,7 +16,13 @@ type Props = {
 };
 
 const ProfileInfo: FC<Props> = ({ avatar, user }) => {
-  const [name, setName] = useState(user && user.name);
+  const [name, setName] = useState(user?.name|| "");
+  const [phone,setPhone]=useState(user?.phone || "");
+  const [address,setAddress]=useState(user?.address || "");
+  const [city,setCity]=useState(user?.city || "");
+  const [pincode,setPincode]=useState(user?.pincode|| "");
+  const [state,setState]=useState(user?.state|| "");
+  const [country,setCountry]=useState(user?.country|| "");
   const [updateAvatar, { isSuccess, error }] = useUpdateAvatarMutation();
   const [editProfile, { isSuccess: success, error: updateError }] =
     useEditProfileMutation();
@@ -50,9 +56,16 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (name !== "") {
+    console.log(typeof(phone),phone,address,pincode)
+    if (name !== "" ) {
       await editProfile({
         name: name,
+        phone:phone,
+        address:address,
+        pincode:pincode,
+        city:city,
+        state:state,
+        country:country,
       });
     }
   };
@@ -98,6 +111,67 @@ const ProfileInfo: FC<Props> = ({ avatar, user }) => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
+            <div className="w-[100%]">
+              <label className="block pb-2">Phone No.</label>
+              <input
+                type="text"
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="w-[100%]">
+              <label className="block pb-2">Address</label>
+              <input
+                type="text"
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                required
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className="w-[100%]">
+              <label className="block pb-2">City</label>
+              <input
+                type="text"
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                required
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+              />
+            </div>
+            <div className="w-[100%]">
+              <label className="block pb-2">Pincode</label>
+              <input
+                type="text"
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                required
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
+              />
+            </div>
+            <div className="w-[100%]">
+              <label className="block pb-2">State</label>
+              <input
+                type="text"
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                required
+                value={state}
+                onChange={(e) => setState(e.target.value)}
+              />
+            </div>
+            <div className="w-[100%]">
+              <label className="block pb-2">Country</label>
+              <input
+                type="text"
+                className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                required
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+              />
+            </div>
+            
             <div className="w-[100%] pt-2">
               <label className="block pb-2">Email Address</label>
               <input
