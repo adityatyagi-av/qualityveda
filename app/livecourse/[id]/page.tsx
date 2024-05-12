@@ -1,5 +1,5 @@
 'use client'
-import CourseDetailsPage from "../../components/Course/CourseDetailsPage";
+import CourseDetailsPage from "../../components/LiveCourse/CourseDetailsPage";
 
 
 const Page = ({params}:any) => {

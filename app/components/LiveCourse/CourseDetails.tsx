@@ -3,7 +3,7 @@ import CoursePlayer from "@/app/utils/CoursePlayer";
 import Ratings from "@/app/utils/Ratings";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { IoCheckmarkDoneOutline, IoCloseOutline } from "react-icons/io5";
+import { IoCheckmarkDoneOutline} from "react-icons/io5";
 import { format } from "timeago.js";
 import CourseContentList from "../Course/CourseContentList";
 import { toast } from "react-hot-toast";
@@ -19,7 +19,6 @@ const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 type Props = {
   data: any;
- 
   setRoute: any;
   setOpen: any;
 };
@@ -134,17 +133,8 @@ const CourseDetails = ({
     };
     const paymentObject = new (window as any).Razorpay(options);
   paymentObject.open();
-  
-
-
     } else {
-      
       toast.error("Please login to buy this course");
-      
-
-
-
-
     }
   };
 

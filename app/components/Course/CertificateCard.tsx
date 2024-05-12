@@ -1,6 +1,8 @@
+import Ratings from "@/app/utils/Ratings";
+import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
-
+import { AiOutlineUnorderedList } from "react-icons/ai";
 
 type Props = {
   item: any;
@@ -8,11 +10,19 @@ type Props = {
 };
 
 const CourseCard: FC<Props> = ({ item, isProfile }) => {
-  
+    
+  const totalVideoLength=(item:any)=>{
+    let length=0;
+    item.courseData.map((course:any)=>{
+      length+=course.videoLength;
+    })
+    return length;
+  }
+  const totalLength=totalVideoLength(item);
   return (
     <>
   
-<Link href={!isProfile ? `/livecourse/${item._id}` : `live-course-access/${item._id}`}>
+<Link href={!isProfile ? `/course/${item._id}` : `course-access/${item._id}`}>
 
 <div className="group relative rounded-3xl  space-y-6 overflow-hidden">
         <img
@@ -28,7 +38,7 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
             <h4 className="text-xl font-semibold  text-gray-300">{item.name}</h4>
             <div className="flex py-2 justify-between">
             <span className="block text-sm text-gray-200">{item.purchased} learners</span>
-          
+            <span className="block text-sm text-gray-200">{totalLength} minutes</span>
             </div>
             
             

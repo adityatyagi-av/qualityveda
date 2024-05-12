@@ -4,6 +4,7 @@ import avatarDefault from "../../../public/assests/avatar.png";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { SiCoursera } from "react-icons/si";
 import { AiOutlineLogout } from "react-icons/ai";
+import { FaCertificate } from "react-icons/fa6";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import Link from "next/link";
 
@@ -66,6 +67,41 @@ const SideBarProfile: FC<Props> = ({
           Enrolled Courses
         </h5>
       </div>
+      <div
+        className={`w-full flex items-center px-3 py-4 cursor-pointer ${
+          active === 7 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
+        }`}
+        onClick={() => setActive(7)}
+      >
+        <FaCertificate size={20} className="dark:text-white text-black"  />
+        <h5 className="pl-2 800px:block hidden font-Poppins dark:text-white text-black">
+          Certificates
+        </h5>
+      </div>
+      <div
+        className={`w-full flex items-center px-3 py-4 cursor-pointer ${
+          active === 5 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
+        }`}
+        onClick={() => setActive(5)}
+      >
+        <SiCoursera size={20} className="dark:text-white text-black"  />
+        <h5 className="pl-2 800px:block hidden font-Poppins dark:text-white text-black">
+          Live Courses
+        </h5>
+      </div>
+      <div
+        className={`w-full flex items-center px-3 py-4 cursor-pointer ${
+          active === 8 ? "dark:bg-slate-800 bg-white" : "bg-transparent"
+        }`}
+        onClick={() => setActive(8)}
+      >
+        <FaCertificate size={20} className="dark:text-white text-black"  />
+        <h5 className="pl-2 800px:block hidden font-Poppins dark:text-white text-black">
+          Live Course Certificates
+        </h5>
+      </div>
+      
+      
       {user.role === "admin" && (
         <Link
           className={`w-full flex items-center px-3 py-4 cursor-pointer ${
