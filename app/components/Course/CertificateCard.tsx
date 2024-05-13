@@ -1,66 +1,41 @@
-import Ratings from "@/app/utils/Ratings";
-import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
-import { AiOutlineUnorderedList } from "react-icons/ai";
+import pdfGenerator from "./pdfGenerator";
 
 type Props = {
   item: any;
   isProfile?: boolean;
+  user:any;
 };
 
-const CourseCard: FC<Props> = ({ item, isProfile }) => {
+const generatePdf=(item:any,user:any)=>{
+  pdfGenerator(item,user);
+}
+const CertificateCard: FC<Props> = ({ item, isProfile ,user}) => {
     
-  const totalVideoLength=(item:any)=>{
-    let length=0;
-    item.courseData.map((course:any)=>{
-      length+=course.videoLength;
-    })
-    return length;
-  }
-  const totalLength=totalVideoLength(item);
+
   return (
     <>
   
-<Link href={!isProfile ? `/course/${item._id}` : `course-access/${item._id}`}>
 
-<div className="group relative rounded-3xl  space-y-6 overflow-hidden">
-        <img
-          className="mx-auto h-[26rem] w-full grayscale-[50%] object-cover object-top ransition duration-500 group-hover:scale-105 group-hover:grayscale-0"
-          src={item?.thumbnail?.url}
-          alt="woman"
-          loading="lazy"
-          width="640"
-          height="805"
-        />
-        <div className="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-gray-800 translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
-          <div>
-            <h4 className="text-xl font-semibold  text-gray-300">{item.name}</h4>
-            <div className="flex py-2 justify-between">
-            <span className="block text-sm text-gray-200">{item.purchased} learners</span>
-            <span className="block text-sm text-gray-200">{totalLength} minutes</span>
-            </div>
-            
-            
-            <div className="flex py-1">
-            <h3 className="text-white font-semibold leading-6	text-xl  dark:text-[#fff]">
-              {item.price === 0 ? "Free" :  "₹ "+item.price}
-            </h3>
-            {item.estimatedPrice && <h5 className="pl-3 text-[14px] mt-[-5px] line-through opacity-80 text-white dark:text-[#fff]">
-            ₹ {item.estimatedPrice}
-            </h5> }
-            
-          </div>
-          </div>
-          <p className="mt-8 text-gray-300">
-  {item.description.length > 100 ? `${item.description.substring(0, 100)}...` : item.description}
-</p>
-        </div>
+<div className="max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+    <div className="px-4 py-2">
+        <h1 className="text-xl font-bold text-gray-800 uppercase dark:text-white">{item.name}</h1>
         
-      </div></Link>
+    </div>
+    <Link href={!isProfile ? `/course/${item._id}` : `course-access/${item._id}`}>
+    <img className="object-cover w-full h-48 mt-2" src={item.thumbnail?.url} alt={item.name}/>
+</Link>
+    <div className="flex items-center justify-between px-4 py-2 bg-gray-900">
+  
+        <button onClick={()=>generatePdf(item,user)} className="px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-300 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none">Download</button>
+    </div>
+
+</div>
+
     
     </>
   );
 };
 
-export default CourseCard;
+export default CertificateCard;

@@ -7,6 +7,7 @@ import ProfileInfo from "./ProfileInfo";
 import ChangePassword from "./ChangePassword";
 import CourseCard from "../Course/CourseCard";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
+import CertificateCard from "../Course/CertificateCard";
 
 type Props = {
   user: any;
@@ -81,7 +82,7 @@ const Profile: FC<Props> = ({ user }) => {
 
       {active === 3 && (
         <div className="w-full pl-7 px-2 800px:px-10 800px:pl-8 mt-[80px]">
-          <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-3 1500px:gap-[35px] mb-12 border-0">
+          <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-4 1500px:gap-[35px] mb-12 border-0">
             {courses &&
               courses.map((item: any, index: number) => (
                 <CourseCard item={item} key={index} isProfile={true} />
@@ -100,7 +101,7 @@ const Profile: FC<Props> = ({ user }) => {
           <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-4 1500px:gap-[35px] mb-12 border-0">
             {courses &&
               courses.map((item: any, index: number) => (
-                <CourseCard item={item} key={index} isProfile={true} />
+                <CertificateCard item={item} key={index} user={user} isProfile={true} />
               ))}
           </div>
           {courses.length === 0 && (
