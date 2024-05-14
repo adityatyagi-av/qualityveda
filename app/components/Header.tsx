@@ -46,6 +46,9 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     if(text1==='courses'){
       setCurrentLink('courses')
     }
+    if(text1==='livecourses'){
+      setCurrentLink('Livecourses')
+    }
     if(text1==='nabl'){
       setCurrentLink('nabl')
     }
@@ -122,6 +125,9 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
         </Link>
         <Link href="/courses" className={`font-semibold  hover:text-purple-600 ${currentLink==='courses'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
           Courses
+        </Link>
+        <Link href="/livecourses" className={`font-semibold  hover:text-purple-600 ${currentLink==='courses'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
+          Live Courses
         </Link>
         <Link href="/nabl" className={`font-semibold  hover:text-purple-600 ${currentLink==='nabl'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
         NABL/NABH/CAP
