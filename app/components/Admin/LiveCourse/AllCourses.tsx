@@ -4,6 +4,7 @@ import {  Button, Modal } from "@mui/material";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useTheme } from "next-themes";
 import { FiEdit2 } from "react-icons/fi";
+import { FaRegUser } from "react-icons/fa";
 import {
   useDeleteLiveCourseMutation,
   useGetAllLiveCoursesQuery,
@@ -46,6 +47,7 @@ const AllCourses = (props: Props) => {
     { field: "id", headerName: "ID", flex: 0.5 },
     { field: "title", headerName: "Course Title", flex: 1 },
     { field: "ratings", headerName: "Ratings", flex: 0.5 },
+
     { field: "purchased", headerName: "Purchased", flex: 0.5 },
     { field: "created_at", headerName: "Created At", flex: 0.5 },
     {
@@ -63,6 +65,21 @@ const AllCourses = (props: Props) => {
       },
     },
     {
+      field: "   ",
+      headerName: "Users",
+      flex: 0.2,
+      renderCell: (params: any) => {
+        return (
+          <>
+            <Link href={`/admin/livecourse/${params.row.id}`}>
+              <FaRegUser className="dark:text-white text-black" size={20} />
+            </Link>
+          </>
+        );
+      },
+    },
+    
+    {
       field: " ",
       headerName: "Delete",
       flex: 0.2,
@@ -76,7 +93,7 @@ const AllCourses = (props: Props) => {
               }}
             >
               <AiOutlineDelete
-                className="dark:text-white text-black"
+                className="mr-4 dark:text-white text-black"
                 size={20}
               />
             </Button>
@@ -84,6 +101,7 @@ const AllCourses = (props: Props) => {
         );
       },
     },
+   
   ];
 
   const rows: any = [];
