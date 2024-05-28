@@ -49,6 +49,8 @@ const EditCourse:FC<Props> = ({id}) => {
         level: editCourseData.level,
         link:editCourseData.link,
         demoUrl: editCourseData.demoUrl,
+        startDate:editCourseData.startDate,
+        endDate:editCourseData.endDate,
         thumbnail: editCourseData?.thumbnail?.url,
       })
       setBenefits(editCourseData.benefits);
@@ -66,6 +68,8 @@ const EditCourse:FC<Props> = ({id}) => {
     tags: "",
     level:  "",
     link:"",
+    startDate:"",
+    endDate:"",
     demoUrl:  "",
     thumbnail:  "",
   });
@@ -99,6 +103,8 @@ const EditCourse:FC<Props> = ({id}) => {
       tags: courseInfo.tags,
       thumbnail: courseInfo.thumbnail,
       level: courseInfo.level,
+      startDate:courseInfo.startDate,
+      endDate:courseInfo.endDate,
       demoUrl: courseInfo.demoUrl,
       benefits: formattedBenefits,
       prerequisites: formattedPrerequisites,

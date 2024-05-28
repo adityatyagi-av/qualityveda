@@ -177,6 +177,45 @@ const CourseInformation: FC<Props> = ({
         <br />
         <div className="w-full flex justify-between">
           <div className="w-[45%]">
+            <label className={`${styles.label}`} htmlFor="startDate">
+              Start Date
+            </label>
+            <input
+              type="date"
+              required
+              name=""
+              value={courseInfo.startDate}
+              onChange={(e: any) =>
+                setCourseInfo({ ...courseInfo, startDate: e.target.value })
+              }
+              id="startDate"
+              placeholder="NABL,NABH,CAP"
+              className={`
+            ${styles.input}`}
+            />
+          </div>
+          <div className="w-[45%]">
+            <label className={`${styles.label}`} htmlFor="endDate">
+              End Date
+            </label>
+            <input
+              type="date"
+              required
+              name=""
+              value={courseInfo.endDate}
+              onChange={(e: any) =>
+                setCourseInfo({ ...courseInfo, endDate: e.target.value })
+              }
+              id="endDate"
+              
+              className={`
+            ${styles.input}`}
+            />
+          </div>
+        </div>
+        <br />
+        <div className="w-full flex justify-between">
+          <div className="w-[45%]">
             <label className={`${styles.label}`}>Course Level</label>
             <input
               type="text"

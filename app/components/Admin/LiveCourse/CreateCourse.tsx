@@ -32,6 +32,8 @@ const CreateCourse = (props: Props) => {
     name: "",
     description: "",
     price: "",
+    startDate:"",
+    endDate:"",
     estimatedPrice: "",
     tags: "",
     level: "",
@@ -68,7 +70,8 @@ const CreateCourse = (props: Props) => {
       thumbnail: courseInfo.thumbnail,
       level: courseInfo.level,
       demoUrl: courseInfo.demoUrl,
-      
+      startDate:courseInfo.startDate,
+      endDate:courseInfo.endDate,
       benefits: formattedBenefits,
       prerequisites: formattedPrerequisites,
       

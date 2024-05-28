@@ -132,6 +132,22 @@ const CoursePreview: FC<Props> = ({
             {courseData?.description}
           </p>
         </div>
+        <div className="w-full">
+          <h1 className="text-[25px] font-Poppins font-[600]">
+            Start Date
+          </h1>
+          <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
+            {courseData?.startDate}
+          </p>
+        </div>
+        <div className="w-full">
+          <h1 className="text-[25px] font-Poppins font-[600]">
+            End Date
+          </h1>
+          <p className="text-[18px] mt-[20px] whitespace-pre-line w-full overflow-hidden">
+            {courseData?.endDate}
+          </p>
+        </div>
         <br />
         <br />
       </div>
