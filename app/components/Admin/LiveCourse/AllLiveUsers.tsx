@@ -10,6 +10,7 @@ import {
 } from "@/redux/features/user/userApi";
 import { FaCertificate } from "react-icons/fa6";
 import { styles } from "@/app/styles/style";
+import { useIssueCertificateMutation } from "@/redux/features/livecourses/livecoursesApi";
 import { toast } from "react-hot-toast";
 import { Box as MuiBox, BoxProps, Theme } from "@mui/material";
 import { SystemProps } from "@mui/system";
@@ -37,8 +38,19 @@ type Props = {
  
 const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
     console.log(id)
-    const id2='661d0890e04bab21583826a8';
-     
+  const [issueCertificate,{isSuccess,error}]=useIssueCertificateMutation();
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Certificate issued successfully");
+    }
+    if (error) {
+      if ("data" in error) {
+        const errorMessage = error as any;
+        toast.error(errorMessage.data.message);
+      }
+    }
+  }, [isSuccess, error]);
+
 
 
   const { theme, setTheme } = useTheme();
@@ -102,7 +114,7 @@ const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
 
   if (data) {
     const newData = data.users.filter((item: any) =>
-      item.courses?.some((course: any) => course._id === id2)
+      item.courses?.some((course: any) => course._id === id)
     );
     console.log(newData)
     newData &&
@@ -120,8 +132,8 @@ const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
   
 
   const handleIssueCertificate = async () => {
-    const id = userId;
-    // await deleteUser(id);
+    const courseID=id;
+    await issueCertificate({userId,courseID})
   };
 
   return (

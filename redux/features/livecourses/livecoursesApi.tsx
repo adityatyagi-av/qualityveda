@@ -32,6 +32,14 @@ export const livecoursesApi = apiSlice.injectEndpoints({
         credentials: "include" as const,
       }),
     }),
+    issueCertificate: builder.mutation({
+      query:({userId,courseID})=>({
+        url:'issue-certificate',
+        method:"POST",
+        body:{userId,courseID},
+        credentials:"include" as const,
+      })
+    }),
     getUsersAllLiveCourses: builder.query({
       query: () => ({
         url: "live-get-courses",
@@ -88,5 +96,6 @@ export const {
   useGetLiveCourseDetailsQuery,
   useGetLiveCourseContentQuery,
   useAddReviewInLiveCourseMutation,
-  useAddReplyInReviewMutation
+  useAddReplyInReviewMutation,
+  useIssueCertificateMutation
 } = livecoursesApi;
