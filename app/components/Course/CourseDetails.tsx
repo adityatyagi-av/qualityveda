@@ -82,6 +82,7 @@ const CourseDetails = ({
     if (user) {
      
       const { data: { key } } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URI}/getkey`)
+      
       if(!key){
         toast.error("Razropay failed to load!!"); 
         return; 

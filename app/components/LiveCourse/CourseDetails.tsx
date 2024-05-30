@@ -83,6 +83,7 @@ const CourseDetails = ({
     if (user) {
      
       const { data: { key } } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URI}/getkey`)
+      
       if(!key){
         toast.error("Razropay failed to load!!"); 
         return; 
@@ -318,7 +319,7 @@ const CourseDetails = ({
                 {isPurchased ? (
                   <Link
                     className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
-                    href={`/course-access/${data._id}`}
+                    href={`/live-course-access/${data._id}`}
                   >
                     Enter to Course
                   </Link>

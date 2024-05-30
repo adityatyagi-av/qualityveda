@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { FC } from "react";
 import pdfGenerator from "./pdfGenerator";
 
+
 type Props = {
   item: any;
   isProfile?: boolean;
@@ -11,7 +12,7 @@ type Props = {
 const generatePdf=(item:any,user:any)=>{
   pdfGenerator(item,user);
 }
-const CertificateCard: FC<Props> = ({ item, isProfile ,user}) => {
+const CertificateCard2: FC<Props> = ({ item, isProfile ,user}) => {
     
 
   return (
@@ -38,4 +39,4 @@ const CertificateCard: FC<Props> = ({ item, isProfile ,user}) => {
   );
 };
 
-export default CertificateCard;
+export default CertificateCard2;

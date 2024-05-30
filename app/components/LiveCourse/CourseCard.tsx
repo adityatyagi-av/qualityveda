@@ -7,7 +7,7 @@ type Props = {
   isProfile?: boolean;
 };
 
-const CourseCard: FC<Props> = ({ item, isProfile }) => {
+const CourseCard2: FC<Props> = ({ item, isProfile }) => {
   
   return (
     <>
@@ -53,4 +53,4 @@ const CourseCard: FC<Props> = ({ item, isProfile }) => {
   );
 };
 
-export default CourseCard;
+export default CourseCard2;

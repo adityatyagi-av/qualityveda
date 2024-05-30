@@ -4,6 +4,10 @@ const pdfGenerator= (item:any,user:any) => {
 
     var name = `${user.name}`
     var course= `${item.name}`
+    const courseDates=user?.livecertificate.find((live:any)=>item._id===live.courseId);
+    const startDate= new Date(courseDates.startDate);
+    const endDate= new Date(courseDates.endDate);
+    var months=['January','February','March','April','May','June','July','August','September','October','November','December'];
     
     var doc = new jsPDF({
       orientation: 'landscape'
@@ -19,6 +23,12 @@ const pdfGenerator= (item:any,user:any) => {
       const pageWidth = doc.internal.pageSize.getWidth();
       const nameX = (pageWidth - nameTextWidth) / 2;
       doc.text(name, nameX, 90); 
+   
+       doc.setFontSize(25);
+       doc.setTextColor(0, 0, 0);
+       doc.setFont('Lato-Black', 'normal');
+       doc.text(`${startDate.getDate()} to ${endDate.getDate()}`,227,130.5);
+       doc.text(`${months[startDate.getMonth()]}, ${startDate.getFullYear()}`,38,140.5)
 
        doc.setFontSize(30);
        doc.setTextColor(0, 0, 0);

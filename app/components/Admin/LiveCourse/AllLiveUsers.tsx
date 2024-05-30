@@ -71,7 +71,7 @@ const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
     { field: "email", headerName: "Email", flex: 0.5 },
     { field: "role", headerName: "Role", flex: 0.5 },
    
-    { field: "created_at", headerName: "Joined At", flex: 0.5 },
+    
     {
       field: " ",
       headerName: "Issue Certificate",
@@ -114,7 +114,7 @@ const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
 
   if (data) {
     const newData = data.users.filter((item: any) =>
-      item.courses?.some((course: any) => course._id === id)
+      item.livecourses?.some((course: any) => course._id === id)
     );
     console.log(newData)
     newData &&
@@ -124,7 +124,7 @@ const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
           name: item.name,
           email: item.email,
           role: item.role,
-          created_at: format(item.createdAt),
+         
         });
       });
   } 
@@ -133,7 +133,9 @@ const AllLiveUsers: FC<Props> = ({ id,isTeam}) => {
 
   const handleIssueCertificate = async () => {
     const courseID=id;
+    
     await issueCertificate({userId,courseID})
+    setOpen(false);
   };
 
   return (

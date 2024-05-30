@@ -7,7 +7,10 @@ import ProfileInfo from "./ProfileInfo";
 import ChangePassword from "./ChangePassword";
 import CourseCard from "../Course/CourseCard";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
+import { useGetUsersAllLiveCoursesQuery } from "@/redux/features/livecourses/livecoursesApi";
 import CertificateCard from "../Course/CertificateCard";
+import CertificateCard2 from "../LiveCourse/CertificateCard";
+import CourseCard2 from "../LiveCourse/CourseCard";
 
 type Props = {
   user: any;
@@ -18,8 +21,10 @@ const Profile: FC<Props> = ({ user }) => {
   const [avatar, setAvatar] = useState(null);
   const [logout, setLogout] = useState(false);
   const [courses, setCourses] = useState([]);
+  const [livecourses,setLiveCourses]=useState([]);
+  const [livecertificates,setLiveCertificates]=useState([]);
   const { data, isLoading } = useGetUsersAllCoursesQuery(undefined, {});
-
+  const { data:data2, isLoading:isLoading2 } = useGetUsersAllLiveCoursesQuery(undefined, {});
   const {} = useLogOutQuery(undefined, {
     skip: !logout ? true : false,
   });
@@ -43,14 +48,30 @@ const Profile: FC<Props> = ({ user }) => {
 
   useEffect(() => {
     if (data) {
-      const filteredCourses = user.courses
-        .map((userCourse: any) =>
+      const filteredCourses = user.courses.map((userCourse: any) =>
           data.courses.find((course: any) => course._id === userCourse._id)
         )
         .filter((course: any) => course !== undefined);
       setCourses(filteredCourses);
     }
-  }, [data]);
+   if(data2){
+   
+const fileteredLiveCourses=user.livecourses.map((userCourse:any)=>
+        data2.courses.find((course:any)=>course._id===userCourse._id)
+        ).filter((course:any)=>course!==undefined);
+        setLiveCourses(fileteredLiveCourses)
+
+
+        const filteredCertificate=user.livecertificate.map((certificate:any)=>
+          data2.courses.find((course:any)=>course._id===certificate.courseId))
+          .filter((course:any)=>course!==undefined);
+          setLiveCertificates(filteredCertificate)
+        
+   }
+   
+    
+  }, [data,data2]);
+
 
   return (
     <div className="w-[85%] flex mx-auto">
@@ -114,13 +135,13 @@ const Profile: FC<Props> = ({ user }) => {
       )}
       {active === 5 && (
         <div className="w-full pl-7 px-2 800px:px-10 800px:pl-8 mt-[80px]">
-          <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-4 1500px:gap-[35px] mb-12 border-0">
-            {courses &&
-              courses.map((item: any, index: number) => (
-                <CourseCard item={item} key={index} isProfile={true} />
+          <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-3 1500px:gap-[35px] mb-12 border-0">
+            {livecourses &&
+              livecourses.map((item: any, index: number) => (
+                <CourseCard2 item={item} key={index} isProfile={true} />
               ))}
           </div>
-          {courses.length === 0 && (
+          {livecourses.length === 0 && (
             <h1 className="text-center text-[18px] font-Poppins dark:text-white text-black">
               You don&apos;t have any purchased Live courses!
             </h1>
@@ -131,14 +152,15 @@ const Profile: FC<Props> = ({ user }) => {
       {active === 8 && (
         <div className="w-full pl-7 px-2 800px:px-10 800px:pl-8 mt-[80px]">
           <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-4 1500px:gap-[35px] mb-12 border-0">
-            {courses &&
-              courses.map((item: any, index: number) => (
-                <CourseCard item={item} key={index} isProfile={true} />
+            {livecertificates &&
+              livecertificates.map((item: any, index: number) => (
+                
+                    <CertificateCard2 item={item} key={index} user={user} isProfile={true} />
               ))}
           </div>
-          {courses.length === 0 && (
+          {livecertificates.length === 0 && (
             <h1 className="text-center text-[18px] font-Poppins dark:text-white text-black">
-              You don&apos;t have any purchased Live Course Certificate!
+              You don&apos;t have any Live Course Certificate!
             </h1>
           )}
           
