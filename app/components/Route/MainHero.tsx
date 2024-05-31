@@ -97,7 +97,7 @@ const MainHero:FC<Props> = (props: Props) => {
           ) : (
             <img
               src="/assests/laptop.png"
-              alt="project illustration"
+              alt="Quality Veda - Discover how Quality Veda saves costs and ensures success in accreditation. Our Quality Manager streamlines the assessment process, earning trust from assessors and optimizing resources for labs and hospitals."
               height=""
               width=""
             />
