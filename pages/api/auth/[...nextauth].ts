@@ -8,11 +8,16 @@ export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || ''
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+      authorization: {
+        params: {
+          redirect_uri: "https://qualityveda.co/api/auth/callback/google",
+        },
+      },
     }),
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID || '',
-      clientSecret: process.env.GITHUB_CLIENT_SECRET || ''
+      clientSecret: process.env.GITHUB_CLIENT_SECRET || '',
     }),
   ],
   secret: process.env.SECRET,
@@ -21,7 +26,6 @@ export const authOptions = {
       return url.startsWith(baseUrl) ? url : baseUrl;
     },
   },
-  // Add this configuration for secure cookies
   cookies: {
     sessionToken: {
       name: `__Secure-next-auth.session-token`,
