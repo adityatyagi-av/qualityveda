@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 
 
-const NEXTAUTH_URL = process.env.NEXTAUTH_URL || "";
+const NEXTAUTH_URL = process.env.NEXTAUTH_URL || "https://qualityveda.co";
 
 export const authOptions = {
   providers: [
@@ -12,7 +12,7 @@ export const authOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
       authorization: {
         params: {
-          redirect_uri: `${NEXTAUTH_URL}/api/auth/callback/google`,
+          redirect_uri: `https://qualityveda.co/api/auth/callback/google`,
         },
       },
     }),
