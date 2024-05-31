@@ -17,11 +17,6 @@ export const authOptions = {
     }),
   ],
   secret: process.env.SECRET,
-  callbacks: {
-    async redirect({ url, baseUrl }: { url: string, baseUrl: string }) {
-      return url.startsWith(baseUrl) ? url : baseUrl;
-    },
-  },
   cookies: {
     sessionToken: {
       name: `__Secure-next-auth.session-token`,
