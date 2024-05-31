@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import GithubProvider from "next-auth/providers/github";
 
 const NEXTAUTH_URL = process.env.NEXTAUTH_URL || "https://qualityveda.co";
 
@@ -12,12 +11,9 @@ export const authOptions = {
       authorization: {
         params: {
           redirect_uri: "https://qualityveda.co/api/auth/callback/google",
+          
         },
       },
-    }),
-    GithubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID || '',
-      clientSecret: process.env.GITHUB_CLIENT_SECRET || '',
     }),
   ],
   secret: process.env.SECRET,
