@@ -26,9 +26,9 @@ const CourseDetailsPage = ({ id }: Props) => {
       ) : (
         <div>
           <Heading
-            title={data.course.name + " - ELearning"}
+            title={data.course.name + " - QualityVeda"}
             description={
-              "ELearning is a programming community which is developed helping programmers"
+              "Quality Veda is your premier destination for diverse medical training programs, bridging theoretical knowledge with practical application. Discover our mission to elevate healthcare standards and our vision for excellence in patient care."
             }
             keywords={data?.course?.tags}
           />

@@ -1,6 +1,7 @@
 'use client'
 import CourseContent from "@/app/components/LiveCourse/CourseContent";
 import Loader from "@/app/components/Loader/Loader";
+
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
@@ -29,8 +30,10 @@ const Page = ({params}: Props) => {
 
   return (
    <>
+   
    {
     isLoading ? (
+      
         <Loader />
     ) : (
         <div>

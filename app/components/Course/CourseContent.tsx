@@ -28,7 +28,7 @@ const CourseContent = ({ id,user }: Props) => {
           <div className="w-full grid 800px:grid-cols-10">
             <Heading
               title={data[activeVideo]?.title}
-              description="anything"
+              description="Quality Veda is your premier destination for diverse medical training programs, bridging theoretical knowledge with practical application. Discover our mission to elevate healthcare standards and our vision for excellence in patient care."
               keywords={data[activeVideo]?.tags}
             />
             <div className="col-span-7">
