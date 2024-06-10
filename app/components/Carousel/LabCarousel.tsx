@@ -3,6 +3,8 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
   } from "@/components/ui/carousel"
 import ImageCard from "../Card/ImageCard"
 import React, { useEffect, useState } from 'react'
@@ -22,7 +24,7 @@ const LabCarousel = (props: Props) => {
     }
   }, [data]);
     const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
+        Autoplay({ delay: 2000, stopOnInteraction: false })
       )
   return (
     <div className=" overflow-hidden max-w-screen-xl mx-auto">
