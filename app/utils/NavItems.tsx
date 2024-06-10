@@ -7,6 +7,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetClose,
 } from "../../components/ui/sheet";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 export const navItemsData = [
@@ -19,11 +20,6 @@ export const navItemsData = [
     name: "Courses",
     url: "/courses",
     link:'courses',
-  },
-  {
-    name: "Live Courses",
-    url: "/livecourses",
-    link:'livecourses',
   },
   {
     name: "NABL/NABH/CAP",
@@ -53,9 +49,9 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
     <>
      
       {isMobile && (
-        <div className="lg:hidden mt-5">
+        <div className="lg:hidden mt-5  ">
           <Sheet >
-            <SheetTrigger className="mb-4"> 
+            <SheetTrigger className=""> 
             <HiOutlineMenuAlt3
                   size={25}
                   className="cursor-pointer dark:text-white  text-black"
@@ -68,7 +64,9 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
 
               
               {navItemsData&&navItemsData.map((item,index)=>(
-                <Link href={`${item.url}`} key={index} passHref>
+             
+                  <Link href={`${item.url}`} key={index} passHref>
+                       <SheetClose asChild>
                 <span
                   className={`${
                     activeItem === item.link ? "text-purple-600" : "text-black dark:text-gray-200"
@@ -76,7 +74,9 @@ const NavItems: React.FC<Props> = ({ activeItem, isMobile }) => {
                 >
                   {item.name}
                 </span>
+                </SheetClose>
               </Link>
+                
               ))}
               </nav>
             </SheetContent>

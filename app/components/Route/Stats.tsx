@@ -29,7 +29,7 @@ const Stats = (props: Props) => {
       
       </div>
     </div>
-          <div className="bg-white mt-14 dark:bg-hsl-custom">
+          <div className=" bg-white mt-14 dark:bg-hsl-custom">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -38,7 +38,7 @@ const Stats = (props: Props) => {
                     <CountUp
                         start={0}
                         end={100}
-                        duration={5}
+                        duration={20}
                         suffix='+'
                         className=' dark:text-gray-50 text-black'
                         />
@@ -50,7 +50,7 @@ const Stats = (props: Props) => {
                     <CountUp
                         start={0}
                         end={20}
-                        duration={5}
+                        duration={20}
                         suffix='+'
                         className=' dark:text-gray-50 text-black'
                         />
@@ -62,7 +62,7 @@ const Stats = (props: Props) => {
                     <CountUp
                         start={0}
                         end={20}
-                        duration={5}
+                        duration={20}
                         suffix='+'
                         className=' dark:text-gray-50 text-black'
                         />
