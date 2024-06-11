@@ -132,13 +132,13 @@ const Signup: FC<Props> = ({ setRoute }) => {
           <input type="submit" value="Sign Up" className={`${styles.button}`} />
         </div>
         <br />
-        <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">
+        {/* <h5 className="text-center pt-4 font-Poppins text-[14px] text-black dark:text-white">
           Or join with
-        </h5>
-        <div className="flex items-center justify-center my-3">
+        </h5> */}
+        {/* <div className="flex items-center justify-center my-3">
           <FcGoogle size={30} className="cursor-pointer mr-2" />
           
-        </div>
+        </div> */}
         <h5 className="text-center pt-4 font-Poppins text-[14px]">
           Already have an account?{" "}
           <span

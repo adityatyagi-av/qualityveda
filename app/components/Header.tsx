@@ -17,7 +17,7 @@ import { useLogOutQuery, useSocialAuthMutation } from "@/redux/features/auth/aut
 import { toast } from "react-hot-toast";
 import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Loader from "./Loader/Loader";
-import Sift from "../../public/assests/qualityvedalogobright.png.png";
+import Sift from "../../public/assests/qualityvedalogo.png";
 import Darkurl from "../../public/assests/logodark.png";
  
 
@@ -48,11 +48,11 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
    const [Shift,setShift] = useState(Sift);
    
    useEffect(()=>{
-       if(theme==="light"){
-        setShift(Sift)
+       if(theme==="dark"){
+        setShift(Darkurl)
        }
        else{
-        setShift(Darkurl)
+        setShift(Sift)
        }
    },[theme])
   
@@ -63,12 +63,16 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     if(text1==='courses'){
       setCurrentLink('courses')
     }
+    if(text1==='livecourses'){
+      setCurrentLink('livecourses')
+    }
     if(text1==='nabl'){
       setCurrentLink('nabl')
     }
     if(text1==='about'){
       setCurrentLink('about')
     }
+
     
   },[text1])
  
@@ -138,6 +142,9 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
         </Link>
         <Link href="/courses" className={`font-semibold  hover:text-purple-600 ${currentLink==='courses'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
           Courses
+        </Link>
+        <Link href="/livecourses" className={`font-semibold  hover:text-purple-600 ${currentLink==='livecourses'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
+          Live Courses
         </Link>
         <Link href="/nabl" className={`font-semibold  hover:text-purple-600 ${currentLink==='nabl'?"text-purple-600":"text-[#a6a6a6] dark:text-[#a6a6a6]"}` }>
         NABL/NABH/CAP
