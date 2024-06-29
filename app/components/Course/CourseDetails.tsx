@@ -11,47 +11,45 @@ import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Image from "next/image";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import axios from "axios";
-import { useCreateOrderMutation, useCreatePaymentIntentMutation } from "@/redux/features/orders/ordersApi";
+import {
+  useCreateOrderMutation,
+  useCreatePaymentIntentMutation,
+} from "@/redux/features/orders/ordersApi";
 import { redirect } from "next/navigation";
+import Header from "../Header";
 
 type Props = {
   data: any;
  
-  setRoute: any;
   setOpen: any;
 };
 
-const CourseDetails = ({
-  data,
-  setRoute,
-  setOpen: openAuthModal,
-}: Props) => {
-
-  const { data: userData,refetch } = useLoadUserQuery(undefined, {});
+const CourseDetails = ({ data, setOpen: openAuthModal }: Props) => {
+  const [route, setRoute] = useState("Login");
+  const { data: userData, refetch } = useLoadUserQuery(undefined, {});
   const [user, setUser] = useState<any>();
   const [open, setOpen] = useState(false);
-  const [orderDetails,setOrderDetails]=useState<any>({});
-  const [orderFinalDetails,setOrderFinalDetails]=useState("");
+  const [orderDetails, setOrderDetails] = useState<any>({});
+  const [orderFinalDetails, setOrderFinalDetails] = useState("");
   const [createPaymentIntent, { data: paymentIntentData }] =
     useCreatePaymentIntentMutation();
-    
-    const [createOrder, { data: orderData,error }] =
-    useCreateOrderMutation();
 
-    function loadScript(src:any) {
-      return new Promise((resolve) => {
-        const script = document.createElement('script')
-        script.src = src
-        script.onload = () => {
-          resolve(true)
-        }
-        script.onerror = () => {
-          resolve(false)
-        }
-        document.body.appendChild(script)
-      })
-    }
-    
+  const [createOrder, { data: orderData, error }] = useCreateOrderMutation();
+
+  function loadScript(src: any) {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  }
+
   useEffect(() => {
     setUser(userData?.user);
   }, [userData]);
@@ -59,91 +57,83 @@ const CourseDetails = ({
     if (paymentIntentData) {
       setOrderDetails(paymentIntentData);
     }
-   
   }, [paymentIntentData]);
   useEffect(() => {
-    if(orderData){
-     refetch();
-     redirect(`/course-access/${data._id}`);
+    if (orderData) {
+      refetch();
+      redirect(`/course-access/${data._id}`);
     }
-    if(error){
-     if ("data" in error) {
-         const errorMessage = error as any;
-         toast.error(errorMessage.data.message);
-       }
+    if (error) {
+      if ("data" in error) {
+        const errorMessage = error as any;
+        toast.error(errorMessage.data.message);
+      }
     }
-   }, [orderData,error])
-  
-  
+  }, [orderData, error]);
+
   const isPurchased =
     user && user?.courses?.find((item: any) => item._id === data._id);
 
-  const handleOrder =async (amount: any) => {
+  const handleOrder = async (amount: any) => {
     if (user) {
-     
-      const { data: { key } } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URI}/getkey`)
-      
-      if(!key){
-        toast.error("Razropay failed to load!!"); 
-        return; 
+      const {
+        data: { key },
+      } = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URI}/getkey`);
+
+      if (!key) {
+        toast.error("Razropay failed to load!!");
+        return;
       }
-      const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
-      
-      if (!res){
-        alert('Razropay failed to load!!')
-        return 
+      const res = await loadScript(
+        "https://checkout.razorpay.com/v1/checkout.js"
+      );
+
+      if (!res) {
+        alert("Razropay failed to load!!");
+        return;
       }
       createPaymentIntent(amount);
-      
+
       const options = {
-        key:key,
-        amount: orderDetails?.order.amount ,
+        key: key,
+        amount: orderDetails?.order.amount,
         currency: "INR",
         name: data.name,
-        description:"description of data ",
-        image: data.thumbnail.url ,
+        description: "description of data ",
+        image: data.thumbnail.url,
         order_id: orderDetails?.order?.id,
-        handler: function (response:any){
-          
-          createOrder({ courseId: data._id, payment_info: response })
+        handler: function (response: any) {
+          createOrder({ courseId: data._id, payment_info: response });
           // alert(response.razorpay_payment_id);
           // alert(response.razorpay_order_id);
           // alert(response.razorpay_signature)
-      },
-  
+        },
+
         prefill: {
           name: user.name,
           email: user.email,
-          
-      },
+        },
         notes: {
-            "address": "Razorpay Corporate Office"
+          address: "Razorpay Corporate Office",
         },
         theme: {
-            "color": "#0000FF"
-        }
-    };
-    const paymentObject = new (window as any).Razorpay(options);
-  paymentObject.open();
-  
-
-
+          color: "#0000FF",
+        },
+      };
+      const paymentObject = new (window as any).Razorpay(options);
+      paymentObject.open();
     } else {
-      
-      toast.error("Please login to buy this course");
-      
-
-
-
-
+      setRoute("Login")
+      setOpen(true)
+      toast('Hey Learner, Login to buy this Course', {
+        icon: '⚠️',
+      });
     }
   };
 
-  
-
-
   return (
     <div>
+      <Header open={open} setOpen={setOpen} setRoute={setRoute} route={route} />
       <div className="w-[90%] 800px:w-[90%] m-auto py-5">
         <div className="w-full flex flex-col-reverse 800px:flex-row">
           <div className="w-full 800px:w-[65%] 800px:pr-5">
@@ -152,9 +142,9 @@ const CourseDetails = ({
             </h1>
             <div className="flex items-center justify-between pt-3">
               <div className="flex items-center">
-                <Ratings rating={data.ratings} />
+                <Ratings rating={5} />
                 <h5 className="text-black dark:text-white">
-                  {data.reviews?.length} Reviews
+                  {"150+"} Reviews
                 </h5>
               </div>
               <h5 className="text-black dark:text-white">
@@ -222,7 +212,7 @@ const CourseDetails = ({
             <br />
             <br />
             <div className="w-full">
-              <div className="800px:flex items-center">
+              {/* <div className="800px:flex items-center">
                 <Ratings rating={data?.ratings} />
                 <div className="mb-2 800px:mb-[unset]" />
                 <h5 className="text-[25px] font-Poppins text-black dark:text-white">
@@ -231,9 +221,9 @@ const CourseDetails = ({
                     : data?.ratings.toFixed(2)}{" "}
                   Course Rating • {data?.reviews?.length} Reviews
                 </h5>
-              </div>
+              </div> */}
               <br />
-              {(data?.reviews && [...data.reviews].reverse()).map(
+              {/* {(data?.reviews && [...data.reviews].reverse()).map(
                 (item: any, index: number) => (
                   <div className="w-full pb-4" key={index}>
                     <div className="flex">
@@ -300,7 +290,7 @@ const CourseDetails = ({
                     ))}
                   </div>
                 )
-              )}
+              )} */}
             </div>
           </div>
           <div className="w-full 800px:w-[35%] relative">
@@ -308,19 +298,24 @@ const CourseDetails = ({
               <CoursePlayer videoUrl={data?.demoUrl} title={data?.title} />
               <div className="flex items-center">
                 <h1 className="pt-5 text-[25px] text-black dark:text-white">
-                  {data.price === 0 ? "Free" :"₹"+ data.price }
+                  {data.price === 0 ? "Free" : "₹" + data.price}
                 </h1>
-                {data.estimatedPrice && 
-                <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80 text-black dark:text-white">
-                ₹ {data.estimatedPrice}
-                </h5>}
-                
-                { (data.estimatedPrice) &&
-                 <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
-                 {(((data?.estimatedPrice - data.price) / data?.estimatedPrice) * 100).toFixed(0)}% Off
-               </h4>                
-}
-               
+                {data.estimatedPrice && (
+                  <h5 className="pl-3 text-[20px] mt-2 line-through opacity-80 text-black dark:text-white">
+                    ₹ {data.estimatedPrice}
+                  </h5>
+                )}
+
+                {data.estimatedPrice && (
+                  <h4 className="pl-5 pt-4 text-[22px] text-black dark:text-white">
+                    {(
+                      ((data?.estimatedPrice - data.price) /
+                        data?.estimatedPrice) *
+                      100
+                    ).toFixed(0)}
+                    % Off
+                  </h4>
+                )}
               </div>
               <div className="flex items-center">
                 {isPurchased ? (
@@ -333,14 +328,14 @@ const CourseDetails = ({
                 ) : (
                   <div
                     className={`${styles.button} !w-[180px] my-3 font-Poppins cursor-pointer !bg-[crimson]`}
-                    onClick={()=>handleOrder(data.price)}
+                    onClick={() => handleOrder(data.price)}
                   >
-                    Buy Now ₹{data.price} 
+                    Buy Now ₹{data.price}
                   </div>
                 )}
               </div>
               <br />
-              
+
               <p className="pb-1 text-black dark:text-white">
                 • Full lifetime access
               </p>
@@ -354,7 +349,6 @@ const CourseDetails = ({
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

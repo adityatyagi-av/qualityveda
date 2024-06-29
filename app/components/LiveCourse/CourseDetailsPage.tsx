@@ -11,7 +11,7 @@ type Props = {
 };
 
 const CourseDetailsPage = ({ id }: Props) => {
-  const [route, setRoute] = useState("Login");
+
   const [open, setOpen] = useState(false);
   const { data, isLoading } = useGetLiveCourseDetailsQuery(id);
   
@@ -37,7 +37,6 @@ const CourseDetailsPage = ({ id }: Props) => {
             <CourseDetails
               data={data.course}
              
-              setRoute={setRoute}
               setOpen={setOpen}
             />
        

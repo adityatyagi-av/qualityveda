@@ -37,7 +37,6 @@ const CourseDetailsPage = ({ id }: Props) => {
             <CourseDetails
               data={data.course}
              
-              setRoute={setRoute}
               setOpen={setOpen}
             />
        

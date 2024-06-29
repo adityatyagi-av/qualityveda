@@ -17,7 +17,8 @@ const MainHero:FC<Props> = (props: Props) => {
   }, [data]);
   const [search, setSearch] = useState("");
   const router = useRouter();
-  const handleSearch = () => {
+  const handleSearch = (e:any) => {
+    e.preventDefault();
     if (search === "") {
       return;
     } else {

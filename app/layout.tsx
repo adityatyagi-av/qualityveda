@@ -47,7 +47,7 @@ export default function RootLayout({
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
               <Custom>
                 <>
-                  {text1 !== "admin" && (
+                  {text1 !== "admin" && text1!== "course"  && text1!== "livecourse" && (
                     <Header
                       open={open}
                       setOpen={setOpen}

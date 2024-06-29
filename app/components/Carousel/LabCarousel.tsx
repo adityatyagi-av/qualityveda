@@ -30,8 +30,7 @@ const LabCarousel = (props: Props) => {
     <div className=" overflow-hidden max-w-screen-xl mx-auto">
   <Carousel
   plugins={[plugin.current]}
-  onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
+  
   
   className="sm:max-w-screen-sm md:max-w-screen-md overflow-x-hidden lg:max-w-screen-lg xl:max-w-screen-xl">
   <CarouselContent className="sm:-ml-4">
@@ -42,7 +41,9 @@ const LabCarousel = (props: Props) => {
     })}
     
      </CarouselContent>
-  
+     <CarouselPrevious className="absolute left-0 mr-2 top-1/2 transform -translate-y-1/2" />
+        <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2" />
+   
 </Carousel>
 </div>
   )

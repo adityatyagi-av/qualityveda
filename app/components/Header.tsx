@@ -19,7 +19,9 @@ import { useLoadUserQuery } from "@/redux/features/api/apiSlice";
 import Loader from "./Loader/Loader";
 import Sift from "../../public/assests/qualityvedalogo.png";
 import Darkurl from "../../public/assests/logodark.png";
- 
+import { useRouter } from "next/navigation";
+import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
+import { useGetUsersAllLiveCoursesQuery } from "@/redux/features/livecourses/livecoursesApi";
 
 
 type Props = {
@@ -33,8 +35,31 @@ type Props = {
 
 
 const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
+  const router =useRouter();
     const [active, setActive] = useState(false);
-  
+    const [isFocused, setIsFocused] = useState(false);
+    const { data: coursesData, isLoading: loading } = useGetUsersAllCoursesQuery(undefined, {});
+    const { data: liveCoursesData, isLoading: loadingLiveCourses } = useGetUsersAllLiveCoursesQuery(undefined, {});
+    
+  const [search,setSearch]=useState("");
+  const handleSearchChange=(e:any)=>{
+    setSearch(e.target.value)
+  }
+  const combinedCourses = [
+    ...(coursesData?.courses || []).map((course: any) => ({ ...course, type: 'course' })),
+    ...(liveCoursesData?.courses || []).map((liveCourse: any) => ({ ...liveCourse, type: 'livecourse' })),
+  ];
+  const handleCourseClick = (course: any) => {
+    console.log(course)
+    if (course.type === 'course') {
+      router.push(`/course/${course._id}`);
+    } else if (course.type === 'livecourse') {
+      router.push(`/livecourse/${course._id}`);
+    }
+  };
+  const filteredCourses = combinedCourses.filter((course: any) =>
+    course.name.toLowerCase().includes(search.toLowerCase())
+  );
   const {data:userData,isLoading,refetch} = useLoadUserQuery(undefined,{});
   const { data } = useSession();
   const [socialAuth, { isSuccess, error }] = useSocialAuthMutation();
@@ -60,10 +85,10 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     if(text1===''){
       setCurrentLink('home')
     }
-    if(text1==='courses'){
+    if(text1==='courses' || text1==="course"){
       setCurrentLink('courses')
     }
-    if(text1==='livecourses'){
+    if(text1==='livecourses' || text1==="livecourse"){
       setCurrentLink('livecourses')
     }
     if(text1==='nabl'){
@@ -157,11 +182,40 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
         </Link>
       </div>
      
-
+      <div className="hidden md:visible items-center justify-between  w-full md:flex md:w-auto mb-2">
+      <div className="relative mt-3 ">
+        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+        </div>
+        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..."
+        value={search}
+        onChange={handleSearchChange}
+        onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
+        />
+        {isFocused && loading && <p>Loading...</p>}
+    {isFocused && !loading && (
+                    <ul className="list-none p-0 absolute z-10 bg-white border border-gray-300 rounded-lg w-full mt-1">
+                      {filteredCourses?.map((course: any) => (
+                        <li
+                          key={course._id}
+                          onMouseDown={() => handleCourseClick(course)} 
+                          className="cursor-pointer p-2 border-b border-gray-200 hover:bg-gray-100"
+                        >
+                          {course.name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+      </div>
+      </div>
  <ThemeSwitcher />
       {/* Right Section - Sign Up Button */}
-
+      
       <div className="mr-4 md:mr-0">
+        
       {userData ? (
                 <Link href={"/profile"}>
                   <Image
@@ -230,6 +284,8 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
     </div>
     </div>
     )}
+    
+    
     </>
   );
 };

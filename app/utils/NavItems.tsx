@@ -22,6 +22,11 @@ export const navItemsData = [
     link:'courses',
   },
   {
+    name: "Live Courses",
+    url: "/livecourses",
+    link:'livecourses',
+  },
+  {
     name: "NABL/NABH/CAP",
     url: "/nabl",
     link:'nabl',
@@ -34,8 +39,8 @@ export const navItemsData = [
 
   {
     name: "Contact Us",
-    url: "/contact",
-    link:'contact',
+    url: "/nabl#callback",
+    link:'nabl',
   },
 ];
 

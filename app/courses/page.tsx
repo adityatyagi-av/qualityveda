@@ -86,7 +86,7 @@ const Page = (props: Props) => {
                   </div>
                   
                 ))}
-                <Search/>
+                
             </div>
             {
                 courses && courses.length === 0 && (

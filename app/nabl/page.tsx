@@ -6,10 +6,12 @@ import Quality from './Quality'
 import Callback from './Callback'
 import NablCarousel from '../components/Carousel/LabCarousel'
 import Heading from '../utils/Heading'
+import List from './List'
 
 type Props = {}
 
 const page = (props: Props) => {
+  
   return (
     <>
      <Heading
@@ -44,7 +46,7 @@ const page = (props: Props) => {
     <Quality/>
     
     <Why/>
-    <NablCarousel/>
+    <List/>
     <Callback/>
     </>
   )

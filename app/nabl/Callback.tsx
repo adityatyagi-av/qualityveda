@@ -88,7 +88,7 @@ const Callback = (props: Props) => {
                         <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.name}*)`}</span>
                       ) : null}</label>
             <input
-              className="w-full rounded-lg border-gray-200 p-3 text-sm"
+              className="w-full border-2 rounded-lg border-gray-500 p-3 text-sm"
               placeholder="Name"
               type="text"
               id="name"
@@ -104,7 +104,7 @@ const Callback = (props: Props) => {
                         <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.email}*)`}</span>
                       ) : null}</label>
               <input
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full border-2 rounded-lg border-gray-500 p-3 text-sm"
                 placeholder="Email address"
                 type="email"
                 id="email"
@@ -119,7 +119,7 @@ const Callback = (props: Props) => {
                         <span className=" text-xs text-red-500 mb-.5">{`(${formik.errors.phone}*)`}</span>
                       ) : null}</label>
               <input
-                className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                className="w-full border-2 rounded-lg border-gray-500 p-3 text-sm"
                 placeholder="Phone Number"
                 type="tel"
                 id="phone"
@@ -138,9 +138,9 @@ const Callback = (props: Props) => {
                       ) : null}</label>
 
             <textarea
-              className="w-full rounded-lg border-gray-200 p-3 text-sm"
-              placeholder="Message"
-              
+              className="w-full border-2 rounded-lg border-gray-500 p-3 text-sm"
+              placeholder="Please type your Query"
+              rows={6}
               id="message"
               onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
