@@ -152,7 +152,7 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
             : "w-full  dark:bg-hsl-custom  dark:border-[#ffffff1c] h-[80px] z-[80] dark:shadow"
         }`}
       >
-    <nav className="  py-4 mx-12  flex justify-between  items-center md:px-8">
+    <nav className="  pt-4 mx-12  flex justify-between  items-center md:px-8">
       {/* Left Section - Company Name */}
       <div className="sm:ml-0 mb-0 ml-4 md:ml-0">
         <Link href="/" className="">
@@ -280,11 +280,41 @@ const Header: FC<Props> = ({ setOpen, route, open, setRoute }) => {
         </>
       )}
     </nav>
+    <div className="md:hidden items-center justify-between  w-full  md:w-auto mb-2">
+      <div className="relative ">
+        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+          </svg>
+        </div>
+        <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-sm bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..."
+        value={search}
+        onChange={handleSearchChange}
+        onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
+        />
+        {isFocused && loading && <p>Loading...</p>}
+    {isFocused && !loading && (
+                    <ul className="list-none p-0 absolute z-10 bg-white border border-gray-300 rounded-lg w-full mt-1">
+                      {filteredCourses?.map((course: any) => (
+                        <li
+                          key={course._id}
+                          onMouseDown={() => handleCourseClick(course)} 
+                          className="cursor-pointer p-2 border-b border-gray-200 hover:bg-gray-100"
+                        >
+                          {course.name}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+      </div>
+      </div>
     
     </div>
+
     </div>
+    
     )}
-    
     
     </>
   );

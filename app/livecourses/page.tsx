@@ -38,9 +38,13 @@ const Page = (props: Props) => {
       />
             <br />
             
-
+            <h1 className="text-center font-Poppins text-[25px] leading-[35px] sm:text-3xl lg:text-4xl dark:text-white 800px:!leading-[60px] dark:bg-hsl-custom text-[#000] font-[700] mb-4 tracking-tight">
+        Upgradation Live Courses: <span className="text-[#a6a6a6]  text-gradient">Choose what{`'`}s best for you</span>{" "}
+          
+        </h1>
             <br />
             <br />
+            
             <div className="grid grid-cols-1 gap-[20px] md:grid-cols-2 md:gap-[25px] lg:grid-cols-3 lg:gap-[25px] 1500px:grid-cols-3 1500px:gap-[35px] mb-12 border-0">
               {courses &&
                 courses.map((item: any, index: number) => (

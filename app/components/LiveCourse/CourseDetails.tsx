@@ -165,9 +165,9 @@ const CourseDetails = ({
             </h1>
             <div className="flex items-center justify-between pt-3">
               <div className="flex items-center">
-                <Ratings rating={data.ratings} />
+                <Ratings rating={4.9} />
                 <h5 className="text-black dark:text-white">
-                  {data.reviews?.length} Reviews
+                  {"150+"} Reviews
                 </h5>
               </div>
               <h5 className="text-black dark:text-white">
@@ -234,7 +234,7 @@ const CourseDetails = ({
             </div>
             <br />
             <br />
-            <div className="w-full">
+            {/* <div className="w-full">
               <div className="800px:flex items-center">
                 <Ratings rating={data?.ratings} />
                 <div className="mb-2 800px:mb-[unset]" />
@@ -314,7 +314,7 @@ const CourseDetails = ({
                   </div>
                 )
               )}
-            </div>
+            </div> */}
           </div>
           <div className="w-full 800px:w-[35%] relative">
             <div className="sticky top-[100px] left-0 z-50 w-full">
