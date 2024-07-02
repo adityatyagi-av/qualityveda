@@ -31,11 +31,15 @@ const CourseDetails = ({ data, setOpen: openAuthModal }: Props) => {
   const [open, setOpen] = useState(false);
   const [orderDetails, setOrderDetails] = useState<any>({});
   const [orderFinalDetails, setOrderFinalDetails] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
   const [createPaymentIntent, { data: paymentIntentData }] =
     useCreatePaymentIntentMutation();
 
   const [createOrder, { data: orderData, error }] = useCreateOrderMutation();
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   function loadScript(src: any) {
     return new Promise((resolve) => {
       const script = document.createElement("script");
@@ -133,6 +137,9 @@ const CourseDetails = ({ data, setOpen: openAuthModal }: Props) => {
 
   return (
     <div>
+      {isMounted &&(
+        <>
+       
       <Header open={open} setOpen={setOpen} setRoute={setRoute} route={route} />
       <div className="w-[90%] 800px:w-[90%] m-auto py-5">
         <div className="w-full flex flex-col-reverse 800px:flex-row">
@@ -349,6 +356,8 @@ const CourseDetails = ({ data, setOpen: openAuthModal }: Props) => {
           </div>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };
