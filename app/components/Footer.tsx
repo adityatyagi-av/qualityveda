@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
 import { useState ,useEffect} from "react";
+import Image from "next/image";
 type Props = {
    
 };
@@ -70,8 +71,14 @@ const Footer = (props: Props) => {
 </Link>
                     <a href="" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">+91 888 250 9194
 </a>
-                    <a href="mailto:connect@qualityveda.co " className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">connect@qualityveda.co </a>
+                    <a href="mailto:connect@qualityveda.co " className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">your.qualityveda@gmail.com </a>
                     <span  className="text-gray-600 transition-colors duration-300 dark:text-gray-300  ">206, 3rd Floor, Silver Home - 2, opposite 14th Avenue, Greater Noida, Ghaziabad, Uttar Pradesh 201301</span>
+                   <div className="flex gap-2 items-center justify-center">
+                    <a href="https://www.instagram.com/qualityveda/" target="_blank" className=""><Image src="/instagram-logo.svg" alt="Instagram QualityVeda Account" width={30} height={30}/> </a>
+                    <a href="https://www.facebook.com/qualityveda/" target="_blank" className=""><Image src="/facebook-logo.svg" alt="Facebook QualityVeda Account" width={25} height={25}/></a>
+                    <a href="https://www.linkedin.com/showcase/qualityveda/" target="_blank" className=""><Image src="/linkedin-logo.svg" alt="Linkedin QualityVeda Account" width={35} height={30}/></a>
+                    <a href="https://www.youtube.com/@QualityVedaOfficial " target="_blank" className=""><Image src="/youtube-logo.svg" alt="Youtube QualityVeda Account" width={35} height={30}/></a>
+                   </div>
                 </div>
             </div>
         </div>
