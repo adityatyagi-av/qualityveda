@@ -19,7 +19,7 @@ const Page: FC<Props> = (props) => {
   return (
     <div className="dark:bg-hsl-custom">
       <Heading
-        title="QualityVeda | Elevate Your Laboratory Quality with ISO 15189 Training"
+        title="QualityVeda | Best ISO-15189 and Quality Control Training"
         description="Welcome to QualityVeda! Enhance your laboratory's performance with our expert ISO 15189 training. Master quality control and accreditation to deliver top-notch patient care."
         keywords="ISO 15189 training,
         4 days iso 15189 training ,
